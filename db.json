@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Johny",
+      "password": "123456"
+    },
+    {
+      "name": "newUSer",
+      "password": "dasdasds",
+      "id": 4
+    },
+    {
+      "name": "kunistation",
+      "password": "S13e02f01",
+      "id": 18
+    }
+  ],
+  "posts": [
+    {
+      "nameAuthor": "kunistation",
+      "content": "Ну вот мой пост",
+      "id": 1
+    },
+    {
+      "nameAuthor": "kunistation",
+      "content": "Ну вот мой пост number number 2",
+      "id": 2
+    },
+    {
+      "content": "мой третий пост",
+      "nameAuthor": "kunistation",
+      "id": 3
+    }
+  ],
+  "commentsPost": [
+    {
+      "idPost": 3,
+      "content": "asdasdasd",
+      "nameAuthor": "kunistation",
+      "id": 2
+    },
+    {
+      "idPost": 3,
+      "content": "dsadadsa",
+      "nameAuthor": "kunistation",
+      "id": 3
+    }
+  ]
+}

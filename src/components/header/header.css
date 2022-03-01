@@ -1,0 +1,14 @@
+
+.navigation{
+    display: flex;
+}
+
+.navigation-list{
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.navigation-item{
+    min-width: 100px;
+}
