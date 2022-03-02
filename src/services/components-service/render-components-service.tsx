@@ -15,8 +15,8 @@ export const renderError = (isLoading: boolean, errorMessage: string | null): JS
     return error
 }
 
-export const renderPost = (post: IPost): React.ReactNode => {
-    return <Post key={`${post.nameAuthor}_${post.id}`} 
+export const renderPost = (post: IPost, isAuth: boolean): React.ReactNode => {
+    return <Post isAuth={isAuth} key={`${post.nameAuthor}_${post.id}`} 
     post={post}/>
 }
 

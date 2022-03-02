@@ -1,19 +1,20 @@
-import { FC, memo, useCallback } from "react"
+import { FC, memo} from "react"
 import { IUser } from "../../models/user-model"
 import { FormCreatePosts } from "../form-create-posts/form-create-posts"
 import { Posts } from "../posts/posts"
 
 interface ProfileInformationsProps{
     userData: IUser,
-    isActiveUser: boolean
+    isActiveUser: boolean,
+    isAuth: boolean
 }
 
 const ProfileInformations: FC<ProfileInformationsProps> = memo((props) => {
 
-    const {userData, isActiveUser} = props
+    const {userData, isActiveUser, isAuth} = props
 
     const formCreatePosts = isActiveUser ? <FormCreatePosts nameUser={userData.name}/> : null
-    const posts = <Posts nameUser={userData.name}/>
+    const posts = <Posts isAuth={isAuth} nameUser={userData.name}/>
 
     return (
         <div>

@@ -7,24 +7,26 @@ import { FormCreateComments } from "../form-create-comment/form-create-comment"
 
 interface CommentsPostProps{
     idPost: number
+    isAuth: boolean
 }
 
 
 //TODO: Доделать
 const CommentsPost: FC<CommentsPostProps> = (props) => {
 
-    const {idPost} = props
+    const {idPost, isAuth} = props
     const {isLoading, data: commentsData, error} = useGetCommentsConcretePostQuery(idPost)
  
     const loader = renderLoading(isLoading)
     const comments = !isLoading && commentsData ? <ListMemo 
                                         items={commentsData} renderItem={renderCommentPost} /> : null
+    const form = isAuth ?  <FormCreateComments idPost={idPost}/> : null
     return (
         <div>
             {loader}
             {error}
             {comments}
-            <FormCreateComments idPost={idPost}/>
+            {form}
         </div>
     )
 }

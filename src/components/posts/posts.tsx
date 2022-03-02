@@ -7,26 +7,33 @@ import { renderPost } from "../../services/components-service/render-components-
 
 
 interface PostsProps{
-    nameUser: string
+    nameUser: string,
+    isAuth: boolean
 }
 
 const Posts: FC<PostsProps> = memo((props) => {
 
-    const {nameUser} = props
+    const {nameUser, isAuth} = props
     const dispatch = useDispatch()
     const posts = useSelector(PostsSelector.getPosts)
-
+    console.log(nameUser)
     useEffect(() => {
         dispatch(fetchPosts(nameUser))
     },[nameUser, dispatch])
 
     return (
         <div>
-            <List items={posts} 
-            renderItem={renderPost}/>
+            {
+                posts.map((post) => {
+                  return renderPost(post, isAuth)
+                })
+            }
         </div>
     )
 })
 
+//TODO: Придумать, как переделать
+// {/* <List items={posts} 
+//             renderItem={renderPost}/> */}
 
 export {Posts}

@@ -4,16 +4,17 @@ import { IPost } from "../../models/post-model";
 import { CommentsPost } from "../comments-post/comments-post";
 
 interface PostProps{
-    post: IPost
+    post: IPost,
+    isAuth: boolean
 }
 
 
 //TODO: Оптимизировать доделать
 const Post: FC<PostProps> = memo((props) => {
 
-    const {post} = props
+    const {post, isAuth} = props
     const commentsState = useVisible(false)
-    const comments = commentsState.isVisible ? <CommentsPost idPost={post.id}/> : null
+    const comments = commentsState.isVisible ? <CommentsPost isAuth={isAuth} idPost={post.id}/> : null
     return (
         <div>
             <p>{post.nameAuthor}</p>

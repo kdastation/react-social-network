@@ -1,7 +1,9 @@
 import { FC } from "react"
+import { useSelector } from "react-redux"
 import { useInput } from "../../hooks/input-hook"
 import { ICommentToCreate } from "../../models/comment-model"
 import { useCreateNewCommentConcretePostMutation } from "../../redux/reducers-query/comments-reducer-query"
+import { AuthSelector } from "../../selectors/auth-selector"
 
 
 interface FormCreateCommentsProps{
@@ -14,12 +16,13 @@ const FormCreateComments: FC<FormCreateCommentsProps> = (props) => {
     const {idPost} = props
     const content = useInput()
     const [createPost, {data}] = useCreateNewCommentConcretePostMutation()
+    const nameActiveUser = useSelector(AuthSelector.getUserName)
 
     const createPostOnClick = () => {
         const newComment: ICommentToCreate = {
             idPost,
             content: content.value,
-            nameAuthor: 'kunistation',//TODO
+            nameAuthor: nameActiveUser as string,//TODO
         } 
         createPost(newComment)
         content.clearValue()

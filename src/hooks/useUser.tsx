@@ -12,7 +12,8 @@ interface IUseUser{
     isActiveUser: boolean,
     errorMessage: string | null,
     isLoading: boolean,
-    userData: IUser
+    userData: IUser,
+    isAuth: boolean,
 }
 //TODO: Доделать
 const useUser = (): IUseUser => {
@@ -46,7 +47,8 @@ const useUser = (): IUseUser => {
         isActiveUser: isAuth && nameActiveUser===userNameForParams,
         isLoading: isLoading,
         errorMessage: error,
-        userData: userData
+        userData: userData,
+        isAuth
     }
 
 }

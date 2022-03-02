@@ -14,6 +14,11 @@
       "name": "kunistation",
       "password": "S13e02f01",
       "id": 18
+    },
+    {
+      "name": "freya",
+      "password": "password123",
+      "id": 19
     }
   ],
   "posts": [
@@ -31,6 +36,16 @@
       "content": "мой третий пост",
       "nameAuthor": "kunistation",
       "id": 3
+    },
+    {
+      "content": "Новый пост!",
+      "nameAuthor": "kunistation",
+      "id": 4
+    },
+    {
+      "content": "новый отзыв!",
+      "nameAuthor": "kunistation",
+      "id": 5
     }
   ],
   "commentsPost": [
@@ -51,6 +66,12 @@
       "content": "dsadadasdasdasdasdasddsa",
       "nameAuthor": "kunistation",
       "id": 4
+    },
+    {
+      "idPost": 5,
+      "content": "новый отзыв к посту",
+      "nameAuthor": "kunistation",
+      "id": 5
     }
   ]
 }

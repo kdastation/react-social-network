@@ -7,14 +7,15 @@ import {renderError, renderLoading } from "../../services/components-service/ren
 const ProfilePage: FC = () => {
 
     const {errorMessage, 
-        isActiveUser, 
+        isActiveUser,
+        isAuth, 
         isLoading,
         userData} = useUser()
 
     const loading = renderLoading(isLoading)
     const error = renderError(isLoading, errorMessage)
     const profileInformations = (!isLoading && !errorMessage ? 
-                            <ProfileInformations isActiveUser={isActiveUser} 
+                            <ProfileInformations isAuth={isAuth} isActiveUser={isActiveUser} 
                             userData={userData} /> : null)
 
     return <div> 
