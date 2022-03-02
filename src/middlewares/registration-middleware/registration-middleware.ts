@@ -3,8 +3,8 @@ import { IUser } from "../../models/user-model"
 import { appDispatch } from "../../redux/store"
 import { addUser} from "../../services/api-service/user-api-service"
 import { loginUser } from "../auth-middleware/auth-middleware"
-import { ValidatorRegistrationForm } from './service-registration-middleware';
-import { clearLoginAndPasswordField, setErrorMessageRegister } from "../../redux/reducers/registration-reducer"
+import { ValidatorRegistrationForm, RegistrationValidateMessages } from './service-registration-middleware';
+import { clearLoginAndPasswordField, setErrorMessageRegister} from "../../redux/reducers/registration-reducer"
 //TODO: Доделать регистрацию
 /**
  * Регистрация пользователя
@@ -18,7 +18,7 @@ import { clearLoginAndPasswordField, setErrorMessageRegister } from "../../redux
     const validator = new ValidatorRegistrationForm(userData)
     const verdicte = await validator.validateRegistrationForm()
 
-    if (verdicte==="OK"){
+    if (verdicte===RegistrationValidateMessages.REGISTRATION_WAS_SUCCESSGUL){
 
       createNewUser(userData, dispatch)
 

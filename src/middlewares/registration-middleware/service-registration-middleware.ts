@@ -2,6 +2,13 @@ import { IUser } from './../../models/user-model';
 import { getUser } from '../../services/api-service/user-api-service';
 
 
+export enum RegistrationValidateMessages{
+    WRONG_LOGIN_VALIDATE = "Имя пользователя слишком короткое",
+    WRONG_PASSWORD_VALIDATE = "Пароль слишком легкий",
+    WRONG_LOGIN_NAME = "Пользователь с таким именем уже существует",
+    REGISTRATION_WAS_SUCCESSGUL = "REGISTRATION_WAS_SUCCESSGUL"
+}
+
 class ValidatorRegistrationForm{
 
     private userData: IUser
@@ -15,22 +22,22 @@ class ValidatorRegistrationForm{
         const isLoginCorrect = this.validateLoginUser()
 
         if (!isLoginCorrect){
-            return "Имя пользователя слишком короткое"
+            return RegistrationValidateMessages.WRONG_LOGIN_VALIDATE
         }
 
         const isUserWithThisNameFound = await this.checkIfSuchUserExists()
 
         if (isUserWithThisNameFound){
-            return "Пользователь с таким именем уже существует"
+            return RegistrationValidateMessages.WRONG_LOGIN_NAME
         }
 
         const isPasswordCorrect = this.validatePasswordUser()
 
         if (!isPasswordCorrect){
-            return "Пароль слишком легкий"
+            return RegistrationValidateMessages.WRONG_PASSWORD_VALIDATE
         }
 
-        return "OK"
+        return RegistrationValidateMessages.REGISTRATION_WAS_SUCCESSGUL
     }
 
     private validateLoginUser(): boolean{
