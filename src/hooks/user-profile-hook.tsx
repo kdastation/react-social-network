@@ -16,14 +16,14 @@ interface IUseUser{
     isAuth: boolean,
 }
 //TODO: Доделать
-const useUser = (): IUseUser => {
+const useUserProfile = (): IUseUser => {
 
     const [error, setError] = useState<string| null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [userData, setUserData] = useState<IUser>({} as IUser)
     const params: ParamProfilePage = useParams()
     const userNameForParams = params.userName
-    const fetchUserData = () => {
+    const fetchUserData = () => { //TODO: переделать это безобразие
         setIsLoading(true)
         getUser(userNameForParams)
         .then(user => {
@@ -53,4 +53,4 @@ const useUser = (): IUseUser => {
 
 }
 
-export {useUser}
+export {useUserProfile}

@@ -46,6 +46,11 @@
       "content": "новый отзыв!",
       "nameAuthor": "kunistation",
       "id": 5
+    },
+    {
+      "content": "новый пост!",
+      "nameAuthor": "freya",
+      "id": 6
     }
   ],
   "commentsPost": [
@@ -72,6 +77,24 @@
       "content": "новый отзыв к посту",
       "nameAuthor": "kunistation",
       "id": 5
+    },
+    {
+      "idPost": 6,
+      "content": "новый отзыв к посту",
+      "nameAuthor": "freya",
+      "id": 6
+    },
+    {
+      "idPost": 1,
+      "content": "комментарий?",
+      "nameAuthor": "freya",
+      "id": 7
+    },
+    {
+      "idPost": 4,
+      "content": "новый отзыв",
+      "nameAuthor": "freya",
+      "id": 8
     }
   ]
 }

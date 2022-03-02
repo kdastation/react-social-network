@@ -24,3 +24,9 @@ export const renderCommentPost = (comment: IComment): React.ReactNode => {
     return <CommentPost key={comment.id} comment={comment}/>
 }
 
+export const renderPosts = (posts: IPost[], isAuth: boolean): React.ReactNode[] => {
+    return posts.map((post) => {
+        return renderPost(post, isAuth)
+      })
+}
+

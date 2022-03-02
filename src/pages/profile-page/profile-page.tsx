@@ -1,5 +1,5 @@
 import {FC} from "react";
-import { useUser } from "../../hooks/useUser";
+import { useUserProfile } from "../../hooks/user-profile-hook";
 import { ProfileInformations } from "../../components/profile-informations/profile-informations";
 import {renderError, renderLoading } from "../../services/components-service/render-components-service";
 
@@ -10,7 +10,7 @@ const ProfilePage: FC = () => {
         isActiveUser,
         isAuth, 
         isLoading,
-        userData} = useUser()
+        userData} = useUserProfile()
 
     const loading = renderLoading(isLoading)
     const error = renderError(isLoading, errorMessage)
