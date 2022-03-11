@@ -1,7 +1,7 @@
 import {useGetCommentsConcretePostQuery } from "../../redux/reducers-query/comments-reducer-query"
 import { FC} from "react"
 import { renderCommentPost, renderLoading } from "../../services/components-service/render-components-service"
-import  {ListMemo} from "../list/list"
+import  {List} from "../list/list"
 import { FormCreateComments } from "../form-create-comment/form-create-comment"
 
 
@@ -18,8 +18,9 @@ const CommentsPost: FC<CommentsPostProps> = (props) => {
     const {isLoading, data: commentsData, error} = useGetCommentsConcretePostQuery(idPost)
  
     const loader = renderLoading(isLoading)
-    const comments = !isLoading && commentsData ? <ListMemo 
+    const comments = !isLoading && commentsData ? <List
                                         items={commentsData} renderItem={renderCommentPost} /> : null
+                                        
     const form = isAuth ?  <FormCreateComments idPost={idPost}/> : null
     return (
         <div>

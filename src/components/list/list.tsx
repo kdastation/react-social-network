@@ -2,7 +2,7 @@ import { memo } from "react"
 
 interface ListProps<T>{
     items: T[],
-    renderItem: any
+    renderItem: (item: T) => React.ReactNode
 }
 
 function List<T>(props: ListProps<T>): JSX.Element{

@@ -39,6 +39,11 @@
       "name": "micky",
       "password": "micky1234",
       "id": 8
+    },
+    {
+      "name": "grera",
+      "password": "sadasdasd",
+      "id": 9
     }
   ],
   "posts": [
@@ -154,6 +159,10 @@
     {
       "name": "micky",
       "id": 8
+    },
+    {
+      "name": "grera",
+      "id": 9
     }
   ]
 }
