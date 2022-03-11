@@ -1,10 +1,10 @@
 import { FC, memo} from "react"
-import { IUser } from "../../models/user-model"
+import { IUserInformation } from "../../models/user-models/user-information-model"
 import { FormCreatePosts } from "../form-create-posts/form-create-posts"
 import { Posts } from "../posts/posts"
 
 interface ProfileInformationsProps{
-    userData: IUser,
+    userData: IUserInformation,
     isActiveUser: boolean,
     isAuth: boolean
 }

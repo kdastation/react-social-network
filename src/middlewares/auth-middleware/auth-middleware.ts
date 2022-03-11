@@ -1,5 +1,5 @@
 
-import { IUser } from './../../models/user-model';
+import { IUser } from '../../models/user-models/user-model';
 import {appDispatch} from "../../redux/store";
 import {getUser} from "../../services/api-service/user-api-service";
 import { addUserInformationInLocalStorage, 

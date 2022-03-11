@@ -8,17 +8,32 @@
     {
       "name": "newUSer",
       "password": "dasdasds",
-      "id": 4
+      "id": 2
     },
     {
       "name": "kunistation",
       "password": "kunistation",
-      "id": 18
+      "id": 3
     },
     {
       "name": "freya",
       "password": "password123",
-      "id": 19
+      "id": 4
+    },
+    {
+      "name": "bear",
+      "password": "123123",
+      "id": 5
+    },
+    {
+      "name": "duck",
+      "password": "duck123456",
+      "id": 6
+    },
+    {
+      "name": "freyaasd",
+      "password": "asdsadasdasd",
+      "id": 7
     }
   ],
   "posts": [
@@ -51,6 +66,11 @@
       "content": "новый пост!",
       "nameAuthor": "freya",
       "id": 6
+    },
+    {
+      "content": "new post",
+      "nameAuthor": "bear",
+      "id": 7
     }
   ],
   "commentsPost": [
@@ -95,6 +115,36 @@
       "content": "новый отзыв",
       "nameAuthor": "freya",
       "id": 8
+    }
+  ],
+  "usersInformations": [
+    {
+      "id": 1,
+      "name": "Johny"
+    },
+    {
+      "name": "newUSer",
+      "id": 2
+    },
+    {
+      "name": "kunistation",
+      "id": 3
+    },
+    {
+      "name": "freya",
+      "id": 4
+    },
+    {
+      "name": "bear",
+      "id": 5
+    },
+    {
+      "name": "duck",
+      "id": 6
+    },
+    {
+      "name": "freyaasd",
+      "id": 7
     }
   ]
 }

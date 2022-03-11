@@ -1,7 +1,7 @@
 
-import { IUser } from "../../models/user-model"
+import { IUser } from "../../models/user-models/user-model"
 import { appDispatch } from "../../redux/store"
-import { addUser} from "../../services/api-service/user-api-service"
+import { ApiRegisterUser} from "../../services/api-service/user-api-service"
 import { loginUser } from "../auth-middleware/auth-middleware"
 import { ValidatorRegistrationForm, RegistrationValidateMessages } from './service-registration-middleware';
 import { setErrorMessageRegister} from "../../redux/reducers/registration-reducer"
@@ -29,8 +29,9 @@ import { setErrorMessageRegister} from "../../redux/reducers/registration-reduce
 }
 
 const createNewUser = async (userData: IUser, dispatch: appDispatch): Promise<void> => {
-    const newUser = await addUser(userData)
-    loginUser(newUser.name, dispatch) 
+    const register = new ApiRegisterUser(userData)
+    const nameNewUser = await register.runRegistrationWithApi()
+    loginUser(nameNewUser, dispatch) 
 }
 
 export {registerUser}

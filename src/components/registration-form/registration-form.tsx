@@ -2,7 +2,7 @@
 import React, { FC} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../middlewares/registration-middleware/registration-middleware";
-import { IUser } from "../../models/user-model";
+import { IUser } from "../../models/user-models/user-model";
 import { RegistrationSelector } from "../../selectors/registration-selector";
 import { useInput } from "../../hooks/input-hook";
 
@@ -28,7 +28,7 @@ const RegistrationForm: FC = () => {
         <div className="registration-form">
             {error}
             <input onChange={loginInput.onChange} value={loginInput.value} type="text" />
-            <input onChange={loginInput.onChange} value={passwordInput.value} type="password" />
+            <input onChange={passwordInput.onChange} value={passwordInput.value} type="password" />
             <button onClick={registerUserOnClick}>Зарегистрироваться</button>
         </div>
     )
