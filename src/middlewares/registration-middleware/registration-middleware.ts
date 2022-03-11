@@ -4,7 +4,7 @@ import { appDispatch } from "../../redux/store"
 import { addUser} from "../../services/api-service/user-api-service"
 import { loginUser } from "../auth-middleware/auth-middleware"
 import { ValidatorRegistrationForm, RegistrationValidateMessages } from './service-registration-middleware';
-import { clearLoginAndPasswordField, setErrorMessageRegister} from "../../redux/reducers/registration-reducer"
+import { setErrorMessageRegister} from "../../redux/reducers/registration-reducer"
 //TODO: Доделать регистрацию
 /**
  * Регистрация пользователя
@@ -31,7 +31,6 @@ import { clearLoginAndPasswordField, setErrorMessageRegister} from "../../redux/
 const createNewUser = async (userData: IUser, dispatch: appDispatch): Promise<void> => {
     const newUser = await addUser(userData)
     loginUser(newUser.name, dispatch) 
-    dispatch(clearLoginAndPasswordField())
 }
 
 export {registerUser}

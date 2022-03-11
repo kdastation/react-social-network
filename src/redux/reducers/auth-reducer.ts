@@ -41,6 +41,9 @@ const authSlice = createSlice({
     }
 })
 
-export const {logOutOfUserAccount, setUser, setUserDataLoadingError, setLoadingUser} = authSlice.actions
+export const {logOutOfUserAccount, 
+            setUser, 
+            setUserDataLoadingError, 
+            setLoadingUser} = authSlice.actions
 
 export const authReducer = authSlice.reducer
