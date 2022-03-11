@@ -34,6 +34,11 @@
       "name": "freyaasd",
       "password": "asdsadasdasd",
       "id": 7
+    },
+    {
+      "name": "micky",
+      "password": "micky1234",
+      "id": 8
     }
   ],
   "posts": [
@@ -145,6 +150,10 @@
     {
       "name": "freyaasd",
       "id": 7
+    },
+    {
+      "name": "micky",
+      "id": 8
     }
   ]
 }

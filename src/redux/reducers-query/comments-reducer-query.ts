@@ -24,7 +24,8 @@ export const commentsSliceQuery = createApi({
     })
 })
 
-export const {useGetCommentsConcretePostQuery, useCreateNewCommentConcretePostMutation} = commentsSliceQuery
+export const {useGetCommentsConcretePostQuery, 
+    useCreateNewCommentConcretePostMutation} = commentsSliceQuery
 
 
 

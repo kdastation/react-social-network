@@ -9,6 +9,7 @@ export interface IRoutes{
 export enum RoutesNames{
     LOGIN = '/login',
     REGISTRATION = '/registration',
+    PROFILE_PAGE = '/profile/',
     PROFILE = '/profile/:userName',
     HOME = '/'
 }
