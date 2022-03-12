@@ -81,6 +81,21 @@
       "content": "new post",
       "nameAuthor": "bear",
       "id": 7
+    },
+    {
+      "content": "sadsadasda",
+      "nameAuthor": "freya",
+      "id": 8
+    },
+    {
+      "content": "новй отзыв",
+      "nameAuthor": "freya",
+      "id": 9
+    },
+    {
+      "content": "еще отзыв",
+      "nameAuthor": "freya",
+      "id": 10
     }
   ],
   "commentsPost": [

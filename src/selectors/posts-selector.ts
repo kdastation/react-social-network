@@ -8,6 +8,10 @@ class PostsSelector{
         return state.posts.posts
     }
 
+    static getStatusLoading(state: rootState): boolean{
+        return state.posts.isLoading
+    }
+
 }
 
 export {PostsSelector}

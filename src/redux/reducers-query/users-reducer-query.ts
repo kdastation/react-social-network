@@ -1,3 +1,4 @@
+
 import { IUserInformation } from './../../models/user-models/user-information-model';
 import { apiUrlNames } from './../../services/api-service/const-api-service';
 import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
@@ -18,9 +19,8 @@ export const usersSliceQuery = createApi({
             query: (page : number = 3 ) => {
                return `${apiUrlNames.URL_USERS_INFORMATIONS}?_limit=${5}&_page=${page}`
             },
-            
+        
             transformResponse(response: IUserInformation[], meta: any) {
-                console.log(meta)
                 return { usersInformations: response, 
                     totalCount: Number(meta?.response?.headers.get('X-Total-Count')) }
               }

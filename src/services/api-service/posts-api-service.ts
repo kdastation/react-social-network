@@ -4,8 +4,9 @@ import  axios from 'axios';
 import { apiUrlNames } from './const-api-service';
 
 
-const getAllPostsUser = async (nameUser: string): Promise<IPost[]> => {
-    const response = await axios.get<IPost[]>(apiUrlNames.MAIN_URL+apiUrlNames.URL_POSTS_USER+nameUser)
+const getAllPostsUser = async (nameUser: string, page : number = 1): Promise<IPost[]> => {
+    const urlAddres = `${apiUrlNames.MAIN_URL}${apiUrlNames.URL_POSTS_USER}${nameUser}&_limit=3&_page=${page}`
+    const response = await axios.get<IPost[]>(urlAddres)
     return response.data    
 }
 
