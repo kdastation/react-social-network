@@ -44,6 +44,11 @@
       "name": "grera",
       "password": "sadasdasd",
       "id": 9
+    },
+    {
+      "name": "bearewq",
+      "password": "sadasdsada",
+      "id": 10
     }
   ],
   "posts": [
@@ -106,6 +111,16 @@
       "content": "ыфвфывфывфы",
       "nameAuthor": "kunistation",
       "id": 12
+    },
+    {
+      "content": "Совершенно новый пост",
+      "nameAuthor": "kunistation",
+      "id": 13
+    },
+    {
+      "content": "нвоый пост",
+      "nameAuthor": "bearewq",
+      "id": 14
     }
   ],
   "commentsPost": [
@@ -194,6 +209,10 @@
     {
       "name": "grera",
       "id": 9
+    },
+    {
+      "name": "bearewq",
+      "id": 10
     }
   ]
 }

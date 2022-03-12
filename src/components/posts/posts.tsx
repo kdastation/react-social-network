@@ -6,6 +6,7 @@ import { PostsSelector } from "../../selectors/posts-selector";
 import { renderPosts } from "../../services/components-service/render-components-service";
 import { Loader } from "../loader/loader";
 import { usePagination } from "../../hooks/pagination-hook";
+import { usePostsInformations } from "../../hooks/posts-information";
 
 
 interface PostsProps{
@@ -17,10 +18,7 @@ const Posts: FC<PostsProps> = memo((props) => {
 
     const {nameUser, isAuth} = props
     const dispatch = useDispatch()
-    const posts = useSelector(PostsSelector.getPosts)
-    const isInitialLoading = useSelector(PostsSelector.getStatusInitialLoading)
-    const isRealoding = useSelector(PostsSelector.getStatusReadloding)
-    const totalCountPosts = useSelector(PostsSelector.getTotalCountPosts)
+    const {isInitialLoading, isRealoding, posts, totalCountPosts} = usePostsInformations()
     const {currentPage,
          quantityOfPageNumbers, 
          changeCurrentPage, 
