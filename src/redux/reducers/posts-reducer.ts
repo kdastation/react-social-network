@@ -5,14 +5,16 @@ import { IPost} from './../../models/post-model';
 
 export interface IPostsState{
     posts: IPost[],
-    isLoading: boolean,
-    nameUser: string | null
+    initialLoad: boolean,
+    isReloading: boolean,
+    hasMore: boolean
 }
 
 const initialState: IPostsState = {
     posts: [],
-    isLoading: true,
-    nameUser: null,
+    initialLoad: false,
+    isReloading: false,
+    hasMore: false
 }
 
 const postsSlice = createSlice({
@@ -20,35 +22,40 @@ const postsSlice = createSlice({
     initialState,
     reducers: {
         setPosts(state, action: PayloadAction<{posts: IPost[], nameUser: string}>){
-            const prevNameUserInState = state.nameUser
-            const receviedNameUser = action.payload.nameUser
+            state.hasMore = state.posts.length > 0
             const receviedPosts = action.payload.posts
-            if (prevNameUserInState !== receviedNameUser){
-                state.posts = receviedPosts
-                state.nameUser = receviedNameUser
-                state.isLoading = false
-            }
-            else{
+            if (state.hasMore){
                 state.posts.push(...receviedPosts)
-                state.isLoading = false
+                state.isReloading = false
+            }else{
+                state.posts = receviedPosts
+                state.initialLoad = false
             }
         },
-        setLoading(state){
-            state.isLoading = true
+        setInitialLoading(state){
+            state.initialLoad = true
         },
+        setRealoding(state){
+            state.isReloading = true
+        },        
         addNewPost(state, action: PayloadAction<IPost>){
             state.posts.push(action.payload)
         },
         resetPosts(state){
             state.posts = []
-            state.isLoading = true
-            state.nameUser = null
+            state.initialLoad = true
+            state.hasMore = false
+            state.isReloading = false
         }
     }
 })
 
 export const postsReducer = postsSlice.reducer
 
-export const {addNewPost, setPosts, setLoading, resetPosts} = postsSlice.actions
+export const {addNewPost, 
+            setPosts, 
+            setInitialLoading, 
+            resetPosts, 
+            setRealoding} = postsSlice.actions
 
 

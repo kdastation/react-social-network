@@ -17,7 +17,8 @@ const Posts: FC<PostsProps> = memo((props) => {
     const {nameUser, isAuth} = props
     const dispatch = useDispatch()
     const posts = useSelector(PostsSelector.getPosts)
-    const isLoading = useSelector(PostsSelector.getStatusLoading)
+    const isInitialLoading = useSelector(PostsSelector.getStatusInitialLoading)
+    const isRealoding = useSelector(PostsSelector.getStatusReadloding)
     const [page, setPage] = useState(1)
 
     useEffect(()=>{
@@ -31,12 +32,16 @@ const Posts: FC<PostsProps> = memo((props) => {
     },[nameUser, dispatch, page])
 
     const postsBlock = renderPosts(posts, isAuth)
-    const loading = isLoading ? <Loader/> : null
+    const loading = isInitialLoading ? <Loader/> : null
+    const reaload = isRealoding ? <div>Loading....</div> : null
+    
     return (
         <div>
-            {postsBlock}
-            <button onClick={()=> setPage(page => page + 1)}>Показать еще</button>
             {loading}
+            {postsBlock}
+            {reaload}
+            <button onClick={()=> setPage(page => page + 1)}>Показать еще</button>
+            
         </div>
     )
 })

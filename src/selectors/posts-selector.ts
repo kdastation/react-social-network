@@ -8,8 +8,12 @@ class PostsSelector{
         return state.posts.posts
     }
 
-    static getStatusLoading(state: rootState): boolean{
-        return state.posts.isLoading
+    static getStatusInitialLoading(state: rootState): boolean{
+        return state.posts.initialLoad
+    }
+
+    static getStatusReadloding(state: rootState): boolean{
+        return state.posts.isReloading
     }
 
 }
