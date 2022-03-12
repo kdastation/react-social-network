@@ -1,13 +1,22 @@
+import { getCountItemsFromHeaders } from './../../utils/utils-api';
 import { IComment } from './../../models/comment-model';
 import { IPost, IPostToCreate } from './../../models/post-model';
 import  axios from 'axios';
 import { apiUrlNames } from './const-api-service';
 
 
-const getAllPostsUser = async (nameUser: string, page : number = 1): Promise<IPost[]> => {
+
+
+const getAllPostsUser = async (nameUser: string, 
+                                page : number = 1): 
+                                Promise<{posts: IPost[],totalCountPosts:number }> => {
     const urlAddres = `${apiUrlNames.MAIN_URL}${apiUrlNames.URL_POSTS_USER}${nameUser}&_limit=3&_page=${page}`
     const response = await axios.get<IPost[]>(urlAddres)
-    return response.data    
+    const totalCountPosts = getCountItemsFromHeaders(response)
+    return {
+        posts: response.data,
+        totalCountPosts
+    }   
 }
 
 const addPostUser = async (post: IPostToCreate) => {

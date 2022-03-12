@@ -13,8 +13,8 @@ export const fetchPosts = (nameUser: string, page : number = initialPagePosts) =
     else{
         dispatch(setRealoding())
     }
-    const posts = await getAllPostsUser(nameUser, page)
-    dispatch(setPosts({posts, nameUser}))
+    const {posts, totalCountPosts} = await getAllPostsUser(nameUser, page)
+    dispatch(setPosts({posts, totalCountPosts}))
 }
 
 export const createNewPost = (post: IPostToCreate) => async (dispatch: appDispatch) => {

@@ -5,13 +5,14 @@ import { fetchPosts } from "../../middlewares/posts-middlewares/posts-middleware
 import { PostsSelector } from "../../selectors/posts-selector";
 import { renderPosts } from "../../services/components-service/render-components-service";
 import { Loader } from "../loader/loader";
+import { usePagination } from "../../hooks/pagination-hook";
 
 
 interface PostsProps{
     nameUser: string,
     isAuth: boolean
 }
-
+//TODO: Доделать
 const Posts: FC<PostsProps> = memo((props) => {
 
     const {nameUser, isAuth} = props
@@ -19,28 +20,39 @@ const Posts: FC<PostsProps> = memo((props) => {
     const posts = useSelector(PostsSelector.getPosts)
     const isInitialLoading = useSelector(PostsSelector.getStatusInitialLoading)
     const isRealoding = useSelector(PostsSelector.getStatusReadloding)
-    const [page, setPage] = useState(1)
+    const totalCountPosts = useSelector(PostsSelector.getTotalCountPosts)
+    const {currentPage,
+         quantityOfPageNumbers, 
+         changeCurrentPage, 
+         lastPage} = usePagination(totalCountPosts, 3, 1)
 
     useEffect(()=>{
         return () => {
             dispatch(resetPosts())
         }
-    },[])
+    },[dispatch])
 
     useEffect(() => {
-        dispatch(fetchPosts(nameUser, page))
-    },[nameUser, dispatch, page])
+        dispatch(fetchPosts(nameUser, currentPage))
+    },[nameUser, dispatch, currentPage])
 
     const postsBlock = renderPosts(posts, isAuth)
     const loading = isInitialLoading ? <Loader/> : null
     const reaload = isRealoding ? <div>Loading....</div> : null
-    
+
     return (
         <div>
             {loading}
             {postsBlock}
             {reaload}
-            <button onClick={()=> setPage(page => page + 1)}>Показать еще</button>
+            {
+                currentPage !== lastPage && quantityOfPageNumbers > 0 ? 
+                                        <button onClick={()=> 
+                                        changeCurrentPage(currentPage + 1)}>
+                                        Показать еще</button> 
+                                        : null
+            }
+            
             
         </div>
     )

@@ -96,6 +96,16 @@
       "content": "еще отзыв",
       "nameAuthor": "freya",
       "id": 10
+    },
+    {
+      "content": "нвоый озыв",
+      "nameAuthor": "kunistation",
+      "id": 11
+    },
+    {
+      "content": "ыфвфывфывфы",
+      "nameAuthor": "kunistation",
+      "id": 12
     }
   ],
   "commentsPost": [
@@ -140,6 +150,12 @@
       "content": "новый отзыв",
       "nameAuthor": "freya",
       "id": 8
+    },
+    {
+      "idPost": 11,
+      "content": "уцйуйцйуцйуйцу",
+      "nameAuthor": "kunistation",
+      "id": 9
     }
   ],
   "usersInformations": [

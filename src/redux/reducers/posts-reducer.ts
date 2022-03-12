@@ -7,21 +7,23 @@ export interface IPostsState{
     posts: IPost[],
     initialLoad: boolean,
     isReloading: boolean,
-    hasMore: boolean
+    hasMore: boolean,
+    totalCountPosts: number
 }
 
 const initialState: IPostsState = {
     posts: [],
     initialLoad: false,
     isReloading: false,
-    hasMore: false
+    hasMore: false,
+    totalCountPosts: 0
 }
 
 const postsSlice = createSlice({
     name: 'posts',
     initialState,
     reducers: {
-        setPosts(state, action: PayloadAction<{posts: IPost[], nameUser: string}>){
+        setPosts(state, action: PayloadAction<{posts: IPost[], totalCountPosts: number}>){
             state.hasMore = state.posts.length > 0
             const receviedPosts = action.payload.posts
             if (state.hasMore){
@@ -30,6 +32,7 @@ const postsSlice = createSlice({
             }else{
                 state.posts = receviedPosts
                 state.initialLoad = false
+                state.totalCountPosts = action.payload.totalCountPosts
             }
         },
         setInitialLoading(state){

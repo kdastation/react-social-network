@@ -15,6 +15,10 @@ class PostsSelector{
     static getStatusReadloding(state: rootState): boolean{
         return state.posts.isReloading
     }
+    
+    static getTotalCountPosts(state: rootState): number{
+        return state.posts.totalCountPosts
+    }
 
 }
 
