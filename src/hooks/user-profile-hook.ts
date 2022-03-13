@@ -22,20 +22,22 @@ const useUserProfile = (): IUseUser => {
     const [error, setError] = useState<string| null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const [userData, setUserData] = useState<IUserInformation>({} as IUserInformation)
-    const params: ParamProfilePage = useParams()
-    const userNameForParams = params.userName
+    const {userName: userNameForParams} = useParams<ParamProfilePage>()
+
     const fetchUserData = () => { //TODO: переделать это безобразие
         setIsLoading(true)
         getUserInformation(userNameForParams)
         .then(user => {
-            if (!!!user){
-                setError("Пользователь не найден")
-                setIsLoading(false)
-            }else{
+            const isUseExists = !!user
+            if (isUseExists){
                 setUserData(user)
-                setIsLoading(false)
+            }else{
+                setError("Пользователь не найден")
             }
         })
+        .finally(() => setIsLoading(false))
+            
+        
     }
     useEffect(() => {
         fetchUserData()
