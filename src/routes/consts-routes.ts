@@ -11,7 +11,8 @@ export enum RoutesNames{
     REGISTRATION = '/registration',
     PROFILE_PAGE = '/profile/',
     PROFILE = '/profile/:userName',
-    HOME = '/'
+    HOME = '/',
+    PAGE_TO_CREATE_A_NEW_POST = '/post/new'
 }
 
 export interface ParamProfilePage{

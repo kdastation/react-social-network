@@ -19,10 +19,8 @@ const Posts: FC<PostsProps> = memo((props) => {
     const {nameUser, isAuth} = props
     const dispatch = useDispatch()
     const {isInitialLoading, isRealoding, posts, totalCountPosts} = usePostsInformations()
-    const {currentPage,
-         quantityOfPageNumbers, 
-         changeCurrentPage, 
-         lastPage} = usePagination(totalCountPosts, 3, 1)
+    const {currentPage, quantityOfPageNumbers, changeCurrentPage, lastPage
+           } = usePagination(totalCountPosts, 3, 1)
 
     useEffect(()=>{
         return () => {

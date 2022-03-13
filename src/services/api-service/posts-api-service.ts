@@ -10,7 +10,7 @@ import { apiUrlNames } from './const-api-service';
 const getAllPostsUser = async (nameUser: string, 
                                 page : number = 1): 
                                 Promise<{posts: IPost[],totalCountPosts:number }> => {
-    const urlAddres = `${apiUrlNames.MAIN_URL}${apiUrlNames.URL_POSTS_USER}${nameUser}&_limit=3&_page=${page}`
+    const urlAddres = `${apiUrlNames.MAIN_URL}${apiUrlNames.URL_POSTS_USER}${nameUser}&_limit=3&_page=${page}${apiUrlNames.FILTERS_POSTS}`
     const response = await axios.get<IPost[]>(urlAddres)
     const totalCountPosts = getCountItemsFromHeaders(response)
     return {

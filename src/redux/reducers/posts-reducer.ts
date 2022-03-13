@@ -41,21 +41,19 @@ const postsSlice = createSlice({
         setRealoding(state){
             state.isReloading = true
         },        
-        addNewPost(state, action: PayloadAction<IPost>){
-            state.posts.push(action.payload)
-        },
         resetPosts(state){
             state.posts = []
             state.initialLoad = true
             state.hasMore = false
             state.isReloading = false
+            state.totalCountPosts = 0
         }
     }
 })
 
 export const postsReducer = postsSlice.reducer
 
-export const {addNewPost, 
+export const { 
             setPosts, 
             setInitialLoading, 
             resetPosts, 

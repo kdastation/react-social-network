@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios"
 
-export const getCountItemsFromHeaders = (response: any): number => {
+export const getCountItemsFromHeaders = (response: AxiosResponse): number => {
     return Number(response.headers['x-total-count'])
 }

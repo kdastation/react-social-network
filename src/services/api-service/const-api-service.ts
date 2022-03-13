@@ -7,5 +7,6 @@ export enum apiUrlNames{
     URL_COMMENTS_POST = "commentsPost?idPost=",
     URL_COMMENTS = 'commentsPost/',
     URL_USER_INFORMATIONS = 'usersInformations?name=',
-    URL_USERS_INFORMATIONS = "usersInformations/"
+    URL_USERS_INFORMATIONS = "usersInformations/",
+    FILTERS_POSTS = '&_sort=id&_order=desc'
 }
