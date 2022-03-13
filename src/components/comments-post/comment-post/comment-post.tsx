@@ -1,5 +1,5 @@
 import { FC, memo } from "react"
-import { IComment } from "../../models/comment-model"
+import { IComment } from "../../../models/comment-model"
 
 interface CommentPostProps{
     comment: IComment

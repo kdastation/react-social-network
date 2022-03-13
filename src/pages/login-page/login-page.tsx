@@ -1,6 +1,6 @@
 import './login-page.css'  
 import {FC} from "react";
-import { LoginForm } from '../../components/login-form/login-form';
+import { LoginForm } from '../../components/forms/login-form/login-form';
 
 
 const LoginPage: FC = () => {

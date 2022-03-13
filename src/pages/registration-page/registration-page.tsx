@@ -1,5 +1,5 @@
 import {FC} from "react";
-import { RegistrationForm } from "../../components/registration-form/registration-form";
+import { RegistrationForm } from "../../components/forms/registration-form/registration-form";
 
 const RegistrationPage: FC = () => {
     return <div>

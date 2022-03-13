@@ -1,7 +1,7 @@
 import { FC, memo} from "react";
-import { useVisible } from "../../hooks/visible-hook";
-import { IPost } from "../../models/post-model";
-import { CommentsPost } from "../comments-post/comments-post";
+import { useVisible } from "../../../hooks/visible-hook";
+import { IPost } from "../../../models/post-model";
+import { CommentsPost } from "../../comments-post/comments-post";
 
 interface PostProps{
     post: IPost,

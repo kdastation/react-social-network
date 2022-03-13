@@ -2,7 +2,7 @@ import {useGetCommentsConcretePostQuery } from "../../redux/reducers-query/comme
 import { FC} from "react"
 import { renderCommentPost, renderLoading } from "../../services/components-service/render-components-service"
 import  {List} from "../list/list"
-import { FormCreateComments } from "../form-create-comment/form-create-comment"
+import { FormCreateComments } from "../forms/form-create-comment/form-create-comment"
 
 
 interface CommentsPostProps{

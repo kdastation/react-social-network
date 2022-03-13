@@ -1,9 +1,9 @@
 import './login-form.css'
 import {FC} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authorizeUser } from "../../middlewares/auth-middleware/auth-middleware";
-import { AuthSelector } from "../../selectors/auth-selector";
-import { useInput } from '../../hooks/input-hook';
+import { authorizeUser } from "../../../middlewares/auth-middleware/auth-middleware";
+import { AuthSelector } from "../../../selectors/auth-selector";
+import { useInput } from '../../../hooks/input-hook';
 
 const LoginForm: FC = () => {
 

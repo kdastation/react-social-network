@@ -1,6 +1,6 @@
 import {FC} from "react";
 import { useSelector } from "react-redux";
-import { FormCreatePosts } from "../../components/form-create-posts/form-create-posts";
+import { FormCreatePosts } from "../../components/forms/form-create-posts/form-create-posts";
 import { AuthSelector } from "../../selectors/auth-selector";
 
 

@@ -1,9 +1,9 @@
 import { FC } from "react"
 import { useSelector } from "react-redux"
-import { useInput } from "../../hooks/input-hook"
-import { ICommentToCreate } from "../../models/comment-model"
-import { useCreateNewCommentConcretePostMutation } from "../../redux/reducers-query/comments-reducer-query"
-import { AuthSelector } from "../../selectors/auth-selector"
+import { useInput } from "../../../hooks/input-hook"
+import { ICommentToCreate } from "../../../models/comment-model"
+import { useCreateNewCommentConcretePostMutation } from "../../../redux/reducers-query/comments-reducer-query"
+import { AuthSelector } from "../../../selectors/auth-selector"
 
 
 interface FormCreateCommentsProps{

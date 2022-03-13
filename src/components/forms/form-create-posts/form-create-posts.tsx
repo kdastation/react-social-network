@@ -1,8 +1,8 @@
-import { useInput } from "../../hooks/input-hook";
+import { useInput } from "../../../hooks/input-hook";
 import React, { FC, memo} from "react";
 import { useDispatch } from "react-redux";
-import { createNewPost } from "../../middlewares/posts-middlewares/posts-middlewares";
-import {IPostToCreate } from "../../models/post-model";
+import { createNewPost } from "../../../middlewares/posts-middlewares/posts-middlewares";
+import {IPostToCreate } from "../../../models/post-model";
 
 
 

@@ -1,8 +1,7 @@
 import { resetPosts } from "../../redux/reducers/posts-reducer";
-import { FC, memo, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPosts } from "../../middlewares/posts-middlewares/posts-middlewares";
-import { PostsSelector } from "../../selectors/posts-selector";
+import { FC, memo, useEffect} from "react";
+import { useDispatch} from "react-redux";
+import { fetchPosts} from "../../middlewares/posts-middlewares/posts-middlewares";
 import { renderPosts } from "../../services/components-service/render-components-service";
 import { Loader } from "../loader/loader";
 import { usePagination } from "../../hooks/pagination-hook";

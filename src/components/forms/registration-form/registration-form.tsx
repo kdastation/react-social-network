@@ -1,10 +1,10 @@
 
 import React, { FC} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../../middlewares/registration-middleware/registration-middleware";
-import { IUser } from "../../models/user-models/user-model";
-import { RegistrationSelector } from "../../selectors/registration-selector";
-import { useInput } from "../../hooks/input-hook";
+import { registerUser } from "../../../middlewares/registration-middleware/registration-middleware";
+import { IUser } from "../../../models/user-models/user-model";
+import { RegistrationSelector } from "../../../selectors/registration-selector";
+import { useInput } from "../../../hooks/input-hook";
 
 //TODO: Доделать регистрацию
 const RegistrationForm: FC = () => {
