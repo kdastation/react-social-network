@@ -4,7 +4,7 @@ import { useDispatch} from "react-redux";
 import { fetchPosts} from "../../middlewares/posts-middlewares/posts-middlewares";
 import { renderPosts } from "../../services/components-service/render-components-service";
 import { Loader } from "../loader/loader";
-import { usePagination } from "../../hooks/pagination-hook";
+import { usePaginationButton } from "../../hooks/pagination-button-hook";
 import { usePostsInformations } from "../../hooks/posts-information";
 
 
@@ -19,7 +19,7 @@ const Posts: FC<PostsProps> = memo((props) => {
     const dispatch = useDispatch()
     const {isInitialLoading, isRealoding, posts, totalCountPosts} = usePostsInformations()
     const {currentPage, quantityOfPageNumbers, changeCurrentPage, lastPage
-           } = usePagination(totalCountPosts, 3, 1)
+           } = usePaginationButton(totalCountPosts, 3, 1)
 
     useEffect(()=>{
         return () => {

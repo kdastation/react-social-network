@@ -49,6 +49,11 @@
       "name": "bearewq",
       "password": "sadasdsada",
       "id": 10
+    },
+    {
+      "name": "newAcc",
+      "password": "newAcc",
+      "id": 11
     }
   ],
   "posts": [
@@ -151,6 +156,11 @@
       "content": " какой - то новый пост",
       "nameAuthor": "freya",
       "id": 20
+    },
+    {
+      "content": "Нвой потс!",
+      "nameAuthor": "newAcc",
+      "id": 21
     }
   ],
   "commentsPost": [
@@ -201,6 +211,12 @@
       "content": "уцйуйцйуцйуйцу",
       "nameAuthor": "kunistation",
       "id": 9
+    },
+    {
+      "idPost": 7,
+      "content": "уцйуцйуйуц",
+      "nameAuthor": "newAcc",
+      "id": 10
     }
   ],
   "usersInformations": [
@@ -243,6 +259,10 @@
     {
       "name": "bearewq",
       "id": 10
+    },
+    {
+      "name": "newAcc",
+      "id": 11
     }
   ]
 }

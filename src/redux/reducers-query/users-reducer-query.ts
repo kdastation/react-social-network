@@ -6,7 +6,7 @@ import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 
 interface IDataUsersQuery{
     usersInformations: IUserInformation[],
-    totalCount: number | undefined
+    totalCount: number 
 }
 
 export const usersSliceQuery = createApi({
@@ -16,13 +16,14 @@ export const usersSliceQuery = createApi({
     endpoints: (builder) => ({
         getInformationAboutAllUsers: builder.query<IDataUsersQuery, number>({
 
-            query: (page : number = 3 ) => {
+            query: (page : number = 1 ) => {
                return `${apiUrlNames.URL_USERS_INFORMATIONS}?_limit=${5}&_page=${page}`
             },
         
             transformResponse(response: IUserInformation[], meta: any) {
+                const receviedTotalCountPosts = Number(meta?.response?.headers.get('X-Total-Count')) || 0
                 return { usersInformations: response, 
-                    totalCount: Number(meta?.response?.headers.get('X-Total-Count')) }
+                    totalCount: receviedTotalCountPosts }
               }
         })
     })
