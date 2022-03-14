@@ -1,9 +1,10 @@
+import { Pagination } from '@mui/material';
 import { FC, memo} from "react";
 import {renderUserItem } from "../../services/components-service/render-components-service";
 import { useGetInformationAboutAllUsersQuery } from "../../redux/reducers-query/users-reducer-query";
 import { List } from "../list/list";
-import { Pagination } from "../pagination/pagination";
 import { useStandartPagination } from "../../hooks/standart-pagination-hook";
+import { calculateQuantityOfPageNumbers } from '../../utils/utils';
 
 
 
@@ -14,16 +15,16 @@ const UsersList: FC = memo(() => {
  
     const users = !isLoading && data?.usersInformations ? 
                   <List items={data.usersInformations} renderItem={renderUserItem} />: null
-
-    const paginationPosts = data?.totalCount ? 
-                          <Pagination totalCountItems={data.totalCount} 
-                                      currentPage={currentPage}
-                                      limit={5}
-                                      changeCurrentPage={changeCurrentPage} /> : null 
     return (
         <div>
             {users}
-            {paginationPosts}
+            {
+                data?.totalCount && <Pagination 
+                                    count={calculateQuantityOfPageNumbers(data.totalCount, 5)}
+                                    page={currentPage}
+                                    onChange={changeCurrentPage} />
+                
+            }
         </div>
     )
 })

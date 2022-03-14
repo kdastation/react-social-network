@@ -49,11 +49,6 @@
       "name": "bearewq",
       "password": "sadasdsada",
       "id": 10
-    },
-    {
-      "name": "newAcc",
-      "password": "newAcc",
-      "id": 11
     }
   ],
   "posts": [
@@ -259,10 +254,6 @@
     {
       "name": "bearewq",
       "id": 10
-    },
-    {
-      "name": "newAcc",
-      "id": 11
     }
   ]
 }

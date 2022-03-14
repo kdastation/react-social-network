@@ -15,7 +15,7 @@ export function useFetch<T>(getData: Function, ...params: any): fetchType<T> {
         .then((receviedData:T) => setData(receviedData))
         .catch((error: Error) => setErrorMessage(error.message))
         .finally(()=> setIsLoading(false))
-    },[])
+    },[getData, params])
 
 
     return [data, isLoading, errorMessage]
