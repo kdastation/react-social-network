@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { AuthSelector } from '../../selectors/auth-selector';
 import { HeaderPublic } from './header-public/header-public';
 import { HeaderPrivate } from './header-private/header-private';
+import { AppBar, Container } from '@mui/material';
+
 
 const Header: FC = () => {
 
@@ -12,15 +14,13 @@ const Header: FC = () => {
     const headerNavigation = isAuth ? <HeaderPrivate /> : <HeaderPublic />
 
     return (
-        <div className='header-wrapper'>
-            <div className="header-block">
-                <div className="navigation">
-                    <ul className='navigation-list'>
-                          {headerNavigation}
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <>
+        <AppBar position='static'>
+            <Container>
+            {headerNavigation}
+            </Container>
+        </AppBar>
+        </>
     )
 }
 
