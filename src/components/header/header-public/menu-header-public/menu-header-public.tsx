@@ -7,7 +7,6 @@ import { RoutesNames } from "../../../../routes/consts-routes";
 //TODO: Доделать
 const MenuHeaderPublic: FC = () => {
   const menu = useStandartMenu();
-
   return (
     <Box>
       <Button onClick={menu.handleClick}>

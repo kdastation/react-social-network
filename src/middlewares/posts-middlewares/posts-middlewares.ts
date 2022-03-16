@@ -18,7 +18,11 @@ export const fetchPosts = (nameUser: string, page : number = initialPagePosts) =
 }
 
 export const createNewPost = (post: IPostToCreate) => async (dispatch: appDispatch) => {
-    const newPost = await addPostUser(post)
+    try{
+        const newPost = await addPostUser(post)
+    }catch{
+        throw new Error("Ошибка добавления поста");
+    }
 }
 
 

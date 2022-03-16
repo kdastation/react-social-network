@@ -24,11 +24,11 @@ const Posts: FC<PostsProps> = memo((props) => {
     return () => {
       dispatch(resetPosts());
     };
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     dispatch(fetchPosts(nameUser, currentPage));
-  }, [nameUser, dispatch, currentPage]);
+  }, [nameUser, currentPage]);
 
   const postsBlock = renderPosts(posts, isAuth);
   const loading = isInitialLoading ? <Loader /> : null;

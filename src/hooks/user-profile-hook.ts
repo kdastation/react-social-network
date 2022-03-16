@@ -2,10 +2,9 @@ import { IUserInformation } from './../models/user-models/user-information-model
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { IUser } from "../models/user-models/user-model"
 import { ParamProfilePage } from "../routes/consts-routes"
 import { AuthSelector } from "../selectors/auth-selector"
-import { getUser, getUserInformation } from "../services/api-service/user-api-service"
+import {  getUserInformation } from "../services/api-service/user-api-service"
 
 
 interface IUseUser{
@@ -41,7 +40,7 @@ const useUserProfile = (): IUseUser => {
     }
     useEffect(() => {
         fetchUserData()
-    },[])
+    },[userNameForParams])
 
     const nameActiveUser = useSelector(AuthSelector.getUserName)
     const isAuth = useSelector(AuthSelector.getIsAuthStatus)
