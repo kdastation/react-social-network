@@ -49,6 +49,26 @@
       "name": "bearewq",
       "password": "sadasdsada",
       "id": 10
+    },
+    {
+      "name": "kunistation2",
+      "password": "wqeqwewqeq",
+      "id": 11
+    },
+    {
+      "name": "kunistation3",
+      "password": "qwerty",
+      "id": 12
+    },
+    {
+      "name": "kunistationas",
+      "password": "dsadasda",
+      "id": 13
+    },
+    {
+      "name": "jonhy",
+      "password": "qwerty",
+      "id": 14
     }
   ],
   "posts": [
@@ -191,6 +211,11 @@
       "content": "выфвфывфывфывфывф",
       "nameAuthor": "kunistation",
       "id": 28
+    },
+    {
+      "content": "Пост двойника!)",
+      "nameAuthor": "kunistation2",
+      "id": 29
     }
   ],
   "commentsPost": [
@@ -289,6 +314,22 @@
     {
       "name": "bearewq",
       "id": 10
+    },
+    {
+      "name": "kunistation2",
+      "id": 11
+    },
+    {
+      "name": "kunistation3",
+      "id": 12
+    },
+    {
+      "name": "kunistationas",
+      "id": 13
+    },
+    {
+      "name": "jonhy",
+      "id": 14
     }
   ]
 }
