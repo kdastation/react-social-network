@@ -1,8 +1,14 @@
-import { RegisterOptions } from "react-hook-form";
+import {
+  ValidatorsType,
+  ConstsValidationFormCreatePosts,
+  ValidationErrorMessageFormCreatePosts,
+} from "./validators-helper/const-validators";
+import { commonValidators } from "./validators-helper/common-validators";
 
-const minLengthPost = 10
-
-export const validatorsFormCreatePost : Omit<RegisterOptions, 'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'> = {
-    required: "Поле должно быть заполнено",
-    minLength: {value: minLengthPost, message: `Минимальная длина пост ${minLengthPost} символов`}
-}
+export const validatorsFormCreatePost: ValidatorsType = {
+  ...commonValidators,
+  minLength: {
+    value: ConstsValidationFormCreatePosts.MIN_LENGTH_POST,
+    message: ValidationErrorMessageFormCreatePosts.MIN_LENGTH_POST_MESSAGE,
+  },
+};

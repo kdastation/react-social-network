@@ -1,15 +1,7 @@
-import { RegisterOptions } from "react-hook-form";
+import { ValidationErrorMessagesRegistrationForm, ValidatorsType } from './validators-helper/const-validators';
 import { getUserInformation } from "../services/api-service/user-api-service";
+import { commonValidators  } from "./validators-helper/common-validators";
 
-//TODO: Доделать
-export enum RegistrationValidateMessages{
-    WRONG_LOGIN_VALIDATE = "Имя пользователя слишком короткое",
-    WRONG_PASSWORD_VALIDATE = "Пароль слишком легкий",
-    WRONG_LOGIN_NAME = "Пользователь с таким именем уже существует",
-    REGISTRATION_WAS_SUCCESSGUL = "REGISTRATION_WAS_SUCCESSGUL"
-}
-
-const defaultRequriedMessage = "Поле должно быть заполнено"
 
 const checkIfSuchUserExists = async (nameUser: string): Promise<boolean> => {
     console.log("request users")
@@ -17,18 +9,18 @@ const checkIfSuchUserExists = async (nameUser: string): Promise<boolean> => {
     return !!receviedUser
 }
 
-export const validatorsFormRegistrationFieldLogin:  Omit<RegisterOptions, 'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'> = {
-    required: defaultRequriedMessage,
+export const validatorsFormRegistrationFieldLogin:  ValidatorsType = {
+    ...commonValidators,
     validate: async (value: string) => {
         const isUserWithThisNameFound = await checkIfSuchUserExists(value)
         if (isUserWithThisNameFound){
-            return "Пользователь с таким именем уже существует"
+            return ValidationErrorMessagesRegistrationForm.USER_ALREADY_EXISTS
         }
         return true
     }
 }
 
-export const validatorsFormRegistrationFieldPassword: Omit<RegisterOptions, 'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'> = {
-    required: defaultRequriedMessage,
+export const validatorsFormRegistrationFieldPassword: ValidatorsType = {
+    ...commonValidators
 }
 

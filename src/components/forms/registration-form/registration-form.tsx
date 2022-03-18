@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Button, TextField } from "@mui/material";
 import { registerUser } from "../../../middlewares/registration-middleware/registration-middleware";
@@ -6,8 +6,8 @@ import {
   validatorsFormRegistrationFieldLogin,
   validatorsFormRegistrationFieldPassword,
 } from "../../../validators/validators-form-registration";
-import { useForm, Controller } from "react-hook-form";
-import { LoginField } from "./login-field";
+import { useForm } from "react-hook-form";
+import { MemoCustomInput } from "../../custom-input/custom-input";
 
 export interface FormRegistrationField {
   name: string;
@@ -30,36 +30,20 @@ const RegistrationForm: FC = () => {
   return (
     <div className="registration-form">
       <form onSubmit={handleSubmit(testSubmit)}>
-        <LoginField control={control} Component={TextField} />
-        {/* <Controller
+        <MemoCustomInput
+          Component={TextField}
           name="name"
-          rules={validatorsFormRegistrationFieldLogin}
-          render={({ field, fieldState: { error } }) => (
-            <TextField
-              error={!!error?.message}
-              helperText={error?.message}
-              label="login"
-              {...field}
-              value={field.value || ""}
-            />
-          )}
           control={control}
-        /> */}
-        <Controller
+          validators={validatorsFormRegistrationFieldLogin}
+          label="login"
+        />
+        <MemoCustomInput
+          type="password"
+          control={control}
           name="password"
-          shouldUnregister={true}
-          rules={validatorsFormRegistrationFieldPassword}
-          render={({ field, fieldState: { error } }) => (
-            <TextField
-              type="password"
-              error={!!error?.message}
-              helperText={error?.message}
-              label="password"
-              {...field}
-              value={field.value || ""}
-            />
-          )}
-          control={control}
+          validators={validatorsFormRegistrationFieldPassword}
+          label="password"
+          Component={TextField}
         />
         <Button
           type="submit"
@@ -73,11 +57,3 @@ const RegistrationForm: FC = () => {
 };
 
 export { RegistrationForm };
-
-// const registerUserOnClick = () => {
-//     const userData: IUser = {
-//       name: loginInput.value,
-//       password: passwordInput.value,
-//     };
-//     dispatch(registerUser(userData));
-//   };
