@@ -1,42 +1,68 @@
-import { FC } from "react"
-import { useSelector } from "react-redux"
-import { useInput } from "../../../hooks/input-hook"
-import { ICommentToCreate } from "../../../models/comment-model"
-import { useCreateNewCommentConcretePostMutation } from "../../../redux/reducers-query/comments-reducer-query"
-import { AuthSelector } from "../../../selectors/auth-selector"
+import { FC } from "react";
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { ICommentToCreate } from "../../../models/comment-model";
+import { CustomInput } from "../../custom-input/custom-input";
+import { Button, TextField } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
+import { validatorsFormCreateComment } from "../../../validators/validators-form-create-comment";
+import { useCreateNewCommentConcretePostMutation } from "../../../redux/reducers-query/comments-reducer-query";
+import { AuthSelector } from "../../../selectors/auth-selector";
 
+interface FormRegistrationField {
+  content: string;
+}
 
-interface FormCreateCommentsProps{
-    idPost: number
+interface FormCreateCommentsProps {
+  idPost: number;
 }
 
 //TODO: Доделать
 const FormCreateComments: FC<FormCreateCommentsProps> = (props) => {
+  const { idPost } = props;
+  const [createPost, { isLoading, error }] =
+    useCreateNewCommentConcretePostMutation();
 
-    const {idPost} = props
-    const content = useInput()
-    const [createPost, {data}] = useCreateNewCommentConcretePostMutation()
-    const nameActiveUser = useSelector(AuthSelector.getUserName)
+  const nameActiveUser = useSelector(AuthSelector.getUserName);
 
-    const createPostOnClick = () => {
-        const newComment: ICommentToCreate = {
-            idPost,
-            content: content.value,
-            nameAuthor: nameActiveUser as string,//TODO
-        } 
-        createPost(newComment)
-        content.clearValue()
-    }
-    
-    return (
-        <div>
-            <div>
-                <input value={content.value} 
-                        onChange={content.onChange} type="text" />
-                <button onClick={createPostOnClick}>Добавить комментарий</button>
-            </div>
-        </div>
-    )
-}
+  const { control, reset, formState, handleSubmit } =
+    useForm<FormRegistrationField>({
+      mode: "onBlur",
+      reValidateMode: "onBlur",
+    });
 
-export {FormCreateComments}
+  const createPostOnClick = async (data: FormRegistrationField) => {
+    const newComment: ICommentToCreate = {
+      ...data,
+      idPost,
+      nameAuthor: nameActiveUser as string,
+    };
+    await createPost(newComment);
+    reset();
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit(createPostOnClick)}>
+        <CustomInput
+          control={control}
+          name="content"
+          validators={validatorsFormCreateComment}
+          Component={TextField}
+          additionalErrorIndicator={!!error}
+        />
+        <Button
+          type="submit"
+          disabled={
+            !formState.isValid || isLoading || formState.isSubmitting || !!error
+          }
+          endIcon={<SendIcon />}
+        >
+          Send
+        </Button>
+      </form>
+    </div>
+  );
+};
+
+export { FormCreateComments };

@@ -22,14 +22,14 @@ const RegistrationForm: FC = () => {
       reValidateMode: "onBlur",
     });
 
-  const testSubmit = (data: FormRegistrationField) => {
+  const registerUserOnClick = (data: FormRegistrationField) => {
     dispatch(registerUser(data));
     reset();
   };
 
   return (
     <div className="registration-form">
-      <form onSubmit={handleSubmit(testSubmit)}>
+      <form onSubmit={handleSubmit(registerUserOnClick)}>
         <MemoCustomInput
           Component={TextField}
           name="name"

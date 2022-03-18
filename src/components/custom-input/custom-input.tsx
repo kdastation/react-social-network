@@ -13,9 +13,18 @@ interface CustomInputProps {
   >;
   variant?: "standard" | "filled" | "outlined";
   type?: "password";
+  additionalErrorIndicator?: boolean;
 }
 const CustomInput: FC<CustomInputProps> = (props) => {
-  const { Component, control, name, label, validators, type } = props;
+  const {
+    Component,
+    control,
+    name,
+    label,
+    validators,
+    type,
+    additionalErrorIndicator,
+  } = props;
   return (
     <Controller
       name={name}
@@ -23,7 +32,7 @@ const CustomInput: FC<CustomInputProps> = (props) => {
       render={({ field, fieldState: { error } }) => (
         <Component
           type={type}
-          error={!!error?.message}
+          error={!!error?.message || additionalErrorIndicator}
           helperText={error?.message}
           label={label}
           {...field}

@@ -25,13 +25,13 @@ const FormCreatePosts: FC<FormCreatePostsProps> = memo((props) => {
 
   const createPostOnClick = async (data: FormCreatePostsField) => {
     const newPost: IPostToCreate = {
-      content: data.content,
+      ...data,
       nameAuthor: nameUser,
     };
     try {
       await dispatch(createNewPost(newPost));
     } catch (error: any) {
-      setError(error.message);
+      setError(error?.message);
     }
     reset();
   };
