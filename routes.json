@@ -1,0 +1,3 @@
+{
+    "/commentsPost/:idPost": "/commentsPost?idPost=:idPost"
+  }

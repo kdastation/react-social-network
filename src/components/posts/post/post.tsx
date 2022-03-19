@@ -1,29 +1,34 @@
-import { FC, memo} from "react";
+import { FC, memo } from "react";
+import { Link } from "react-router-dom";
 import { useVisible } from "../../../hooks/visible-hook";
 import { IPost } from "../../../models/post-model";
+import { RoutesNames } from "../../../routes/consts-routes";
 import { CommentsPost } from "../../comments-post/comments-post";
 
-interface PostProps{
-    post: IPost,
-    isAuth: boolean
+interface PostProps {
+  post: IPost;
+  isAuth: boolean;
 }
-
 
 //TODO: Оптимизировать доделать
 const Post: FC<PostProps> = memo((props) => {
+  const { post, isAuth } = props;
+  const commentsState = useVisible(false);
+  const comments = commentsState.isVisible ? (
+    <CommentsPost isAuth={isAuth} idPost={post.id} />
+  ) : null;
+  return (
+    <div>
+      <p>{post.nameAuthor}</p>
+      <p>{post.content}</p>
+      <p>{post.id}</p>
+      <Link to={`${RoutesNames.POST_PAGE_WITHOUT_PARAM + post.id}`}>
+        Посмотреть пост детальнее
+      </Link>
+      {comments}
+      <button onClick={commentsState.toogleVisible}>Посмотреть отзывы</button>
+    </div>
+  );
+});
 
-    const {post, isAuth} = props
-    const commentsState = useVisible(false)
-    const comments = commentsState.isVisible ? <CommentsPost isAuth={isAuth} idPost={post.id}/> : null
-    return (
-        <div>
-            <p>{post.nameAuthor}</p>
-            <p>{post.content}</p>
-            <p>{post.id}</p>
-            {comments}
-            <button onClick={commentsState.toogleVisible}>Посмотреть отзывы</button>
-        </div>
-    )
-})
-
-export {Post}
+export { Post };
