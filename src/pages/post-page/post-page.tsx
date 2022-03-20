@@ -1,25 +1,24 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { Post } from "../../components/posts/post/post";
-import { useFetch } from "../../hooks/fetch-hook";
-import { IPost } from "../../models/post-model";
-import { ParamPostPage } from "../../routes/consts-routes";
-import { AuthSelector } from "../../selectors/auth-selector";
-import { PostChanges } from "../../components/post-changes/post-changes";
-import { getPost } from "../../services/api-service/posts-api-service";
+import { DefaultPost } from "../../components/posts/default-post/default-post";
+import { PostForPage } from "../../components/posts/post-for-page/post-for-page";
+import { usePostPage } from "../../hooks/post-page-hook";
+import { DeletePost } from "../../components/post-changes/delete-post/delete-post";
 
 const PostPage: FC = () => {
-  const { idPost } = useParams<ParamPostPage>();
-  const [dataPost, isLoading, error] = useFetch<IPost>(getPost, idPost);
-  const isAuth = useSelector(AuthSelector.getIsAuthStatus);
-  const nameActiveUser = useSelector(AuthSelector.getUserName);
-  console.log(dataPost, isLoading, error, nameActiveUser);
+  const { error, idPost, isAuth, isLoading, isPostAuthor, dataPost } =
+    usePostPage();
+  console.log(dataPost, isLoading, error);
   return (
     <div>
-      {!isLoading && dataPost ? <Post isAuth={isAuth} post={dataPost} /> : null}
-      {!isLoading && isAuth && dataPost?.nameAuthor === nameActiveUser ? (
-        <PostChanges post={dataPost} />
+      {!isLoading && dataPost && !isPostAuthor ? (
+        <Post isAuth={isAuth} post={dataPost} Component={DefaultPost} />
+      ) : null}
+      {!isLoading && dataPost && isPostAuthor ? (
+        <Post isAuth={isAuth} post={dataPost} Component={PostForPage} />
+      ) : null}
+      {!isLoading && dataPost && isAuth && isPostAuthor ? (
+        <DeletePost post={dataPost} />
       ) : null}
     </div>
   );

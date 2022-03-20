@@ -45,4 +45,15 @@ const deletePost = async (idPost: number) => {
   );
 };
 
-export { getAllPostsUser, addPostUser, getCommentsPost, getPost, deletePost };
+const updatePost = async (post: IPost) => {
+  await axios.put(apiUrlNames.MAIN_URL + apiUrlNames.URL_POSTS + post.id, post);
+};
+
+export {
+  getAllPostsUser,
+  addPostUser,
+  getCommentsPost,
+  getPost,
+  deletePost,
+  updatePost,
+};

@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { validatorsFormCreatePost } from "../../../validators/validators-form-create-post";
 import { createNewPost } from "../../../middlewares/posts-middlewares/posts-middlewares";
 import { IPostToCreate } from "../../../models/post-model";
-import { Button, TextField, Typography } from "@mui/material";
-import { useForm, Controller } from "react-hook-form";
+import { CustomMultilineInput } from "../../custom-input/custom-multiline-input/custom-multiline-input";
+import { Button, Typography } from "@mui/material";
+import { useForm } from "react-hook-form";
 
 interface FormCreatePostsProps {
   nameUser: string;
@@ -40,23 +41,10 @@ const FormCreatePosts: FC<FormCreatePostsProps> = memo((props) => {
     <div>
       <Typography>{nameUser} хотите создать новый пост?:)</Typography>
       <form onSubmit={handleSubmit(createPostOnClick)}>
-        <Controller
-          name="content"
+        <CustomMultilineInput
           control={control}
-          rules={validatorsFormCreatePost}
-          render={({ field, fieldState: { error } }) => {
-            return (
-              <TextField
-                {...field}
-                multiline
-                minRows={5}
-                color={"success"}
-                value={field.value || ""}
-                error={!!error?.message}
-                helperText={error?.message}
-              />
-            );
-          }}
+          name="content"
+          validators={validatorsFormCreatePost}
         />
         <Button
           disabled={!formState.isValid || formState.isSubmitting}

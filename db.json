@@ -28,7 +28,7 @@
   ],
   "posts": [
     {
-      "content": "новый пост!",
+      "content": "asdsadsadasdadsadasdsadadasdad!",
       "nameAuthor": "freya",
       "id": 6
     },
@@ -51,6 +51,16 @@
       "content": "еще отзыв",
       "nameAuthor": "freya",
       "id": 10
+    },
+    {
+      "nameAuthor": "kunistation",
+      "content": "ewqewqewqeqweqweqweq",
+      "id": 11
+    },
+    {
+      "nameAuthor": "kunistation",
+      "content": "qweqwewqeqweq",
+      "id": 12
     }
   ],
   "commentsPost": [
@@ -89,6 +99,18 @@
       "idPost": 9,
       "nameAuthor": "kunistation",
       "id": 7
+    },
+    {
+      "content": "dasdasdasdasd",
+      "idPost": 11,
+      "nameAuthor": "kunistation",
+      "id": 8
+    },
+    {
+      "content": "qweqweqwewq",
+      "idPost": 11,
+      "nameAuthor": "kunistation",
+      "id": 9
     }
   ],
   "usersInformations": [
