@@ -18,6 +18,7 @@ const Post: FC<PostProps> = memo((props) => {
   const comments = commentsState.isVisible ? (
     <CommentsPost isAuth={isAuth} idPost={post.id} />
   ) : null;
+
   return (
     <div>
       <Component post={post} />

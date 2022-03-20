@@ -6,9 +6,15 @@ import { apiUrlNames } from "./const-api-service";
 
 const getAllPostsUser = async (
   nameUser: string,
-  page: number = 1
+  page: number = 3,
+  filter: boolean = false
 ): Promise<{ posts: IPost[]; totalCountPosts: number }> => {
-  const urlAddres = `${apiUrlNames.MAIN_URL}${apiUrlNames.URL_POSTS_USER}${nameUser}&_limit=3&_page=${page}${apiUrlNames.FILTERS_POSTS}`;
+  const sortedBy = filter ? "desc" : "asc";
+  const urlAddres = `${apiUrlNames.MAIN_URL}${
+    apiUrlNames.URL_POSTS_USER
+  }${nameUser}&_limit=${3}&_page=${page}${
+    apiUrlNames.FILTERS_POSTS
+  }${sortedBy}`;
   const response = await axios.get<IPost[]>(urlAddres);
   const totalCountPosts = getCountItemsFromHeaders(response);
   return {
