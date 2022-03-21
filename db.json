@@ -12,7 +12,7 @@
     },
     {
       "name": "kunistation",
-      "password": "kunistation",
+      "password": "qwe",
       "id": 3
     },
     {
@@ -66,6 +66,11 @@
       "content": "qwewqeeqwewqeqwe",
       "nameAuthor": "kunistation",
       "id": 18
+    },
+    {
+      "content": "qweqweqweqe",
+      "nameAuthor": "kunistation",
+      "id": 19
     }
   ],
   "commentsPost": [

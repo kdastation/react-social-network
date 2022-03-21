@@ -2,9 +2,12 @@ import { FC } from "react";
 import { CustomInput } from "../../custom-input/custom-input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validatorsChangePasswordForm } from "../../../validators/validators-change-password-form";
-import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
-import { useChangePasswordAndModal } from "../../../hooks/change-password-and-modal-hook";
+import { useSubmitAndModal } from "../../../hooks/submit-and-modal-hook";
+import { IUser } from "../../../models/user-models/user-model";
+import { changePasswordUser } from "../../../services/api-service/user-api-service";
+import { CustomModal } from "../../custom-modal/custom-modal";
 
 interface PasswordChangeFormProps {
   deactivateEditMode: Function;
@@ -16,23 +19,16 @@ export interface PasswordChangeFormFields {
   confirmPassword: string;
 }
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 const PasswordChangeForm: FC<PasswordChangeFormProps> = (props) => {
   const { deactivateEditMode, userName } = props;
-  const { messageOperation, closeModal, isModalVisible, changePasswordSumbit } =
-    useChangePasswordAndModal(userName, deactivateEditMode);
-
+  const { submitData, message, isVisibleModal, defaultOnCloseModal } =
+    useSubmitAndModal(
+      async (data: PasswordChangeFormFields) => {
+        await changePasswordSubmit(data);
+      },
+      "Пароль успешно изменен",
+      "Произошла ошибка"
+    );
   const {
     control,
     handleSubmit,
@@ -43,9 +39,22 @@ const PasswordChangeForm: FC<PasswordChangeFormProps> = (props) => {
     resolver: yupResolver(validatorsChangePasswordForm),
   });
 
+  const changePasswordSubmit = async (data: PasswordChangeFormFields) => {
+    const newUserData: IUser = {
+      name: userName as string,
+      password: data.password,
+    };
+    await changePasswordUser(newUserData);
+  };
+
+  const onCloseModal = () => {
+    defaultOnCloseModal();
+    deactivateEditMode();
+  };
+
   return (
     <div>
-      <form onSubmit={handleSubmit(changePasswordSumbit)}>
+      <form onSubmit={handleSubmit(submitData)}>
         <CustomInput
           name="password"
           control={control}
@@ -63,13 +72,13 @@ const PasswordChangeForm: FC<PasswordChangeFormProps> = (props) => {
         <Button type="submit" disabled={isSubmitting}>
           Сохранить
         </Button>
-        <Modal open={isModalVisible} onClose={closeModal}>
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              {messageOperation}
-            </Typography>
-          </Box>
-        </Modal>
+        {isVisibleModal && (
+          <CustomModal
+            isVisibleModal={isVisibleModal}
+            message={message}
+            onCloseModal={onCloseModal}
+          />
+        )}
       </form>
     </div>
   );
