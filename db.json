@@ -53,29 +53,19 @@
       "id": 10
     },
     {
-      "nameAuthor": "kunistation",
-      "content": "ewqewqewqeqweqweqweq",
-      "id": 11
-    },
-    {
-      "content": "wqeqweqweqwewqeqwe",
-      "nameAuthor": "kunistation",
-      "id": 13
-    },
-    {
-      "content": "ewqeqweqweqweqweqe",
-      "nameAuthor": "kunistation",
-      "id": 14
-    },
-    {
-      "content": "новый пост какой - то там",
-      "nameAuthor": "kunistation",
-      "id": 15
-    },
-    {
       "content": "qweqwewqeqweqwe",
       "nameAuthor": "kunistation",
       "id": 16
+    },
+    {
+      "content": "adsandjasdnasdajndajdsads",
+      "nameAuthor": "kunistation",
+      "id": 17
+    },
+    {
+      "content": "qwewqeeqwewqeqwe",
+      "nameAuthor": "kunistation",
+      "id": 18
     }
   ],
   "commentsPost": [
@@ -126,6 +116,12 @@
       "idPost": 11,
       "nameAuthor": "kunistation",
       "id": 9
+    },
+    {
+      "content": "qwe",
+      "idPost": 15,
+      "nameAuthor": "kunistation",
+      "id": 10
     }
   ],
   "usersInformations": [

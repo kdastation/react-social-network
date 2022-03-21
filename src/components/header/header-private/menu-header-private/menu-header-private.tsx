@@ -28,6 +28,9 @@ const MenuHeaderPrivate: FC<MenuHeaderPrivateProps> = (props) => {
         <MenuItem onClick={menu.onClose}>
           <Link to={`${RoutesNames.PROFILE_PAGE}${userName}`}>{userName}</Link>
         </MenuItem>
+        <MenuItem onClick={menu.onClose}>
+          <Link to={RoutesNames.SETTINGS_PROFILE_PAGE}>settings</Link>
+        </MenuItem>
       </Menu>
     </Box>
   );

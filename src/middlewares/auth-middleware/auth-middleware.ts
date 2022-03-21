@@ -12,6 +12,7 @@ import {
   logOutOfUserAccount,
   setLoadingUser,
   setUser,
+  disableLoadingUser,
 } from "../../redux/reducers/auth-reducer";
 
 //TODO: : Переделать названия переменных
@@ -63,11 +64,12 @@ const logOut =
 const tryToInitiallyAuthorizeTheUser =
   () =>
   (dispatch: appDispatch): void => {
+    dispatch(setLoadingUser());
     const userInformation = getUserInformationForLocalStorage();
     if (userInformation) {
-      dispatch(setLoadingUser());
       dispatch(setUser(userInformation));
     }
+    dispatch(disableLoadingUser());
   };
 
 export { authorizeUser, logOut, tryToInitiallyAuthorizeTheUser, loginUser };

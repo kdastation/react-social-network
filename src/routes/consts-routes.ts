@@ -15,6 +15,7 @@ export enum RoutesNames {
   PAGE_TO_CREATE_A_NEW_POST = "/post/new",
   POST_PAGE = "/post/:idPost",
   POST_PAGE_WITHOUT_PARAM = "/post/",
+  SETTINGS_PROFILE_PAGE = "/settings",
 }
 
 export interface ParamProfilePage {

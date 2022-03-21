@@ -1,20 +1,18 @@
-import { FC, useEffect } from "react"
-import { useDispatch } from "react-redux"
-import { tryToInitiallyAuthorizeTheUser } from "../../../middlewares/auth-middleware/auth-middleware"
+import { FC, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { tryToInitiallyAuthorizeTheUser } from "../../../middlewares/auth-middleware/auth-middleware";
+import { AuthSelector } from "../../../selectors/auth-selector";
 
-const ImportantDataProvider: FC = ({children}) => {
+//TODO: Доделать
+const ImportantDataProvider: FC = ({ children }) => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector(AuthSelector.getLoadingStatus);
 
-    const dispatch = useDispatch()
-    
-    useEffect(() => {
-        dispatch(tryToInitiallyAuthorizeTheUser())
-    },[])
+  useEffect(() => {
+    dispatch(tryToInitiallyAuthorizeTheUser());
+  }, []);
 
-    return (
-        <>
-          {children}  
-        </>
-    )
-}
+  return <>{!isLoading ? children : <div>Loading...</div>}</>;
+};
 
-export {ImportantDataProvider}
+export { ImportantDataProvider };
