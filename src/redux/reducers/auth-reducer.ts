@@ -40,6 +40,9 @@ const authSlice = createSlice({
     disableLoadingUser(state) {
       state.isLoading = false;
     },
+    setUserName(state, action: PayloadAction<string>) {
+      state.userName = action.payload;
+    },
   },
 });
 
@@ -49,6 +52,7 @@ export const {
   setUserDataLoadingError,
   setLoadingUser,
   disableLoadingUser,
+  setUserName,
 } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

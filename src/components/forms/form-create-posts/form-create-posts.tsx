@@ -6,6 +6,8 @@ import { IPostToCreate } from "../../../models/post-model";
 import { CustomMultilineInput } from "../../custom-input/custom-multiline-input/custom-multiline-input";
 import { Button, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
+import { useSubmitAndModal } from "../../../hooks/submit-and-modal-hook";
+import { CustomModal } from "../../custom-modal/custom-modal";
 
 interface FormCreatePostsProps {
   nameUser: string;
@@ -18,29 +20,35 @@ interface FormCreatePostsField {
 const FormCreatePosts: FC<FormCreatePostsProps> = memo((props) => {
   const { nameUser } = props;
   const dispatch = useDispatch();
-  const [error, setError] = useState(null);
-  const { control, handleSubmit, formState, reset } =
-    useForm<FormCreatePostsField>({
-      mode: "onBlur",
-    });
+  const { control, handleSubmit, formState } = useForm<FormCreatePostsField>({
+    mode: "onBlur",
+  });
 
-  const createPostOnClick = async (data: FormCreatePostsField) => {
+  const {
+    message,
+    submitData: updgradeSubmitCreatePost,
+    isVisibleModal,
+    defaultOnCloseModal,
+  } = useSubmitAndModal(
+    async (data: FormCreatePostsField) => {
+      await createPostSumbit(data);
+    },
+    "Ваш пост успешно создан!",
+    "Упс...Произошла ошибка!"
+  );
+
+  const createPostSumbit = async (data: FormCreatePostsField) => {
     const newPost: IPostToCreate = {
       ...data,
       nameAuthor: nameUser,
     };
-    try {
-      await dispatch(createNewPost(newPost));
-    } catch (error: any) {
-      setError(error?.message);
-    }
-    reset();
+    await dispatch(createNewPost(newPost));
   };
 
   return (
     <div>
       <Typography>{nameUser} хотите создать новый пост?:)</Typography>
-      <form onSubmit={handleSubmit(createPostOnClick)}>
+      <form onSubmit={handleSubmit(updgradeSubmitCreatePost)}>
         <CustomMultilineInput
           control={control}
           name="content"
@@ -53,7 +61,13 @@ const FormCreatePosts: FC<FormCreatePostsProps> = memo((props) => {
           Создать пост
         </Button>
       </form>
-      {error && <div>{error}</div>}
+      {isVisibleModal && (
+        <CustomModal
+          isVisibleModal={isVisibleModal}
+          message={message}
+          onCloseModal={defaultOnCloseModal}
+        />
+      )}
     </div>
   );
 });

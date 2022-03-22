@@ -24,6 +24,11 @@
       "name": "bear",
       "password": "123123",
       "id": 5
+    },
+    {
+      "name": "qaz",
+      "password": "qwe",
+      "id": 6
     }
   ],
   "posts": [
@@ -53,24 +58,19 @@
       "id": 10
     },
     {
-      "content": "qweqwewqeqweqwe",
+      "content": "wqeqweqewqe",
       "nameAuthor": "kunistation",
-      "id": 16
+      "id": 20
     },
     {
-      "content": "adsandjasdnasdajndajdsads",
+      "content": "qweqweqeqw",
       "nameAuthor": "kunistation",
-      "id": 17
+      "id": 21
     },
     {
-      "content": "qwewqeeqwewqeqwe",
+      "content": "qweqwewqeqewqewq",
       "nameAuthor": "kunistation",
-      "id": 18
-    },
-    {
-      "content": "qweqweqweqe",
-      "nameAuthor": "kunistation",
-      "id": 19
+      "id": 22
     }
   ],
   "commentsPost": [
@@ -127,28 +127,56 @@
       "idPost": 15,
       "nameAuthor": "kunistation",
       "id": 10
+    },
+    {
+      "content": "ewqeweqwewe",
+      "idPost": 21,
+      "nameAuthor": "kunistation",
+      "id": 11
+    },
+    {
+      "content": "qwewqewqe",
+      "idPost": 20,
+      "nameAuthor": "kunistation",
+      "id": 12
+    },
+    {
+      "content": "ahahahahha",
+      "idPost": 7,
+      "nameAuthor": "kunistation",
+      "id": 13
     }
   ],
   "usersInformations": [
     {
       "id": 1,
-      "name": "Johny"
+      "name": "Johny",
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg"
     },
     {
       "name": "newUSer",
-      "id": 2
+      "id": 2,
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg"
     },
     {
       "name": "kunistation",
-      "id": 3
+      "id": 3,
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg"
     },
     {
       "name": "freya",
-      "id": 4
+      "id": 4,
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg"
     },
     {
       "name": "bear",
-      "id": 5
+      "id": 5,
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg"
+    },
+    {
+      "name": "qaz",
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg",
+      "id": 6
     }
   ]
 }

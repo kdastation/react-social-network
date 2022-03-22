@@ -9,7 +9,7 @@ import { validatorsFormCreateComment } from "../../../validators/validators-form
 import { useCreateNewCommentConcretePostMutation } from "../../../redux/reducers-query/comments-reducer-query";
 import { AuthSelector } from "../../../selectors/auth-selector";
 
-interface FormRegistrationField {
+interface FormCreateCommentsFields {
   content: string;
 }
 
@@ -26,12 +26,12 @@ const FormCreateComments: FC<FormCreateCommentsProps> = (props) => {
   const nameActiveUser = useSelector(AuthSelector.getUserName);
 
   const { control, reset, formState, handleSubmit } =
-    useForm<FormRegistrationField>({
+    useForm<FormCreateCommentsFields>({
       mode: "onBlur",
       reValidateMode: "onBlur",
     });
 
-  const createPostOnClick = async (data: FormRegistrationField) => {
+  const createPostOnClick = async (data: FormCreateCommentsFields) => {
     const newComment: ICommentToCreate = {
       ...data,
       idPost,

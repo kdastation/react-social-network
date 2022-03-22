@@ -23,6 +23,7 @@ const createNewUser = async (
   dispatch: appDispatch
 ): Promise<void> => {
   const register = new ApiRegisterUser(userData);
+  debugger;
   const nameNewUser = await register.runRegistrationWithApi();
   loginUser(nameNewUser, dispatch);
 };

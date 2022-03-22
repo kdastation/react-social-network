@@ -3,7 +3,7 @@ import { Post } from "../../components/posts/post/post";
 import { DefaultPost } from "../../components/posts/default-post/default-post";
 import { PostForPage } from "../../components/posts/post-for-page/post-for-page";
 import { usePostPage } from "../../hooks/post-page-hook";
-import { DeletePost } from "../../components/post-changes/delete-post/delete-post";
+import { DeletePost } from "../../components/delete-post/delete-post";
 
 const PostPage: FC = () => {
   const { error, idPost, isAuth, isLoading, isPostAuthor, dataPost } =

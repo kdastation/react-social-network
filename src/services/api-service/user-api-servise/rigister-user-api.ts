@@ -37,6 +37,7 @@ export class ApiRegisterUser {
   private createUserInformations = (name: string) => {
     const newUserInformations = {
       name: this.userData.name,
+      img: "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg",
     };
     return newUserInformations;
   };

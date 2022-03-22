@@ -22,6 +22,9 @@ const ProfileInformations: FC<ProfileInformationsProps> = memo((props) => {
     <div>
       <div>{linkToNewPostPage}</div>
       <div>{userData.name}</div>
+      <div>
+        <img src={userData?.img} alt="user-img-profile" />
+      </div>
       <div>{posts}</div>
     </div>
   );

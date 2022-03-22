@@ -4,7 +4,7 @@ import { FC } from "react";
 interface CustomModalProps {
   message: string | null;
   isVisibleModal: boolean;
-  onCloseModal: () => void;
+  onCloseModal?: () => void;
 }
 
 const style = {
