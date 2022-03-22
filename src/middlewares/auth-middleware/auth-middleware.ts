@@ -1,6 +1,6 @@
 import { IUser } from "../../models/user-models/user-model";
 import { appDispatch } from "../../redux/store";
-import { getUser } from "../../services/api-service/user-api-service";
+import { GeneralUserApiServise } from "../../services/api-service/user-api-servise/user-api-service";
 import {
   addUserInformationInLocalStorage,
   checkIfThePasswordIsCorrect,
@@ -19,7 +19,9 @@ import {
 const authorizeUser =
   (nameUser: string, password: string) =>
   async (dispatch: appDispatch): Promise<void> => {
-    const user: IUser | undefined = await getUser(nameUser);
+    const user: IUser | undefined = await GeneralUserApiServise.getUser(
+      nameUser
+    );
     if (user) {
       const isPasswordCorrectly = checkIfThePasswordIsCorrect(
         password,

@@ -21,7 +21,7 @@ export function useSubmitAndModal<T>(
       await performAnActionWithApi(data);
       notifyUser(messageSuccess);
     } catch (error: any) {
-      notifyUser(messageError);
+      notifyUser(messageError + error?.message);
     }
   };
 

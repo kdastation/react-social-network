@@ -6,7 +6,7 @@ import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useSubmitAndModal } from "../../../hooks/submit-and-modal-hook";
 import { IUser } from "../../../models/user-models/user-model";
-import { changePasswordUser } from "../../../services/api-service/user-api-service";
+import { changePasswordUser } from "../../../services/api-service/user-api-servise/user-api-service";
 import { CustomModal } from "../../custom-modal/custom-modal";
 
 interface PasswordChangeFormProps {
@@ -22,12 +22,12 @@ export interface PasswordChangeFormFields {
 const PasswordChangeForm: FC<PasswordChangeFormProps> = (props) => {
   const { deactivateEditMode, userName } = props;
   const { submitData, message, isVisibleModal, defaultOnCloseModal } =
-    useSubmitAndModal(
+    useSubmitAndModal<PasswordChangeFormFields>(
       async (data: PasswordChangeFormFields) => {
         await changePasswordSubmit(data);
       },
-      "Пароль успешно изменен",
-      "Произошла ошибка"
+      `${userName} Пароль успешно изменен`,
+      `${userName} Произошла ошибка"`
     );
   const {
     control,
