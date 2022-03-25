@@ -8,10 +8,11 @@ interface CustomMultilineInputProps {
   control: Control<any, any>;
   validators: ValidatorsType;
   defaultValue?: string;
+  minRows?: number;
 }
 
 const CustomMultilineInput: FC<CustomMultilineInputProps> = (props) => {
-  const { control, validators, name, defaultValue } = props;
+  const { control, validators, name, defaultValue, minRows } = props;
   return (
     <div>
       <Controller
@@ -24,7 +25,8 @@ const CustomMultilineInput: FC<CustomMultilineInputProps> = (props) => {
             <TextField
               {...field}
               multiline
-              minRows={5}
+              sx={{ width: "100%" }}
+              minRows={minRows || 5}
               color={"success"}
               value={field.value || ""}
               error={!!error?.message}

@@ -2,12 +2,13 @@ import { FC } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import { ICommentToCreate } from "../../../models/comment-model";
-import { CustomInput } from "../../custom-input/custom-input";
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { validatorsFormCreateComment } from "../../../validators/validators-form-create-comment";
 import { useCreateNewCommentConcretePostMutation } from "../../../redux/reducers-query/comments-reducer-query";
 import { AuthSelector } from "../../../selectors/auth-selector";
+import { CustomMultilineInput } from "../../custom-input/custom-multiline-input/custom-multiline-input";
+import styles from "./form-create-comment.module.scss";
 
 interface FormCreateCommentsFields {
   content: string;
@@ -44,22 +45,26 @@ const FormCreateComments: FC<FormCreateCommentsProps> = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit(createPostOnClick)}>
-        <CustomInput
+        <CustomMultilineInput
           control={control}
           name="content"
+          minRows={3}
           validators={validatorsFormCreateComment}
-          Component={TextField}
-          additionalErrorIndicator={!!error}
         />
-        <Button
-          type="submit"
-          disabled={
-            !formState.isValid || isLoading || formState.isSubmitting || !!error
-          }
-          endIcon={<SendIcon />}
-        >
-          Send
-        </Button>
+        <div className={styles.button_wrapper}>
+          <Button
+            type="submit"
+            disabled={
+              !formState.isValid ||
+              isLoading ||
+              formState.isSubmitting ||
+              !!error
+            }
+            endIcon={<SendIcon />}
+          >
+            Send
+          </Button>
+        </div>
       </form>
     </div>
   );

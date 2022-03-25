@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main_content {
+  flex-grow: 1;
+}
+
+.text_content {
+  max-width: 350px;
+  overflow-wrap: break-word;
+}
