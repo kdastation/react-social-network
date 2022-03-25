@@ -20,13 +20,18 @@ export const renderError = (
   return error;
 };
 
-export const renderPost = (post: IPost, isAuth: boolean): React.ReactNode => {
+export const renderPost = (
+  post: IPost,
+  isAuth: boolean,
+  userAvatar: string | undefined
+): React.ReactNode => {
   return (
     <Post
       isAuth={isAuth}
       Component={DefaultPost}
       key={`${post.nameAuthor}_${post.id}`}
       post={post}
+      userAvatar={userAvatar}
     />
   );
 };
@@ -45,9 +50,10 @@ export const renderUserItem = (
 
 export const renderPosts = (
   posts: IPost[],
-  isAuth: boolean
+  isAuth: boolean,
+  userAvatar: string | undefined
 ): React.ReactNode[] => {
   return posts.map((post) => {
-    return renderPost(post, isAuth);
+    return renderPost(post, isAuth, userAvatar);
   });
 };

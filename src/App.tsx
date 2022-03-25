@@ -1,14 +1,11 @@
 import { FC } from "react";
-import "./App.css";
-import { AppRouter } from "./components/utils-components/app-router/app-router";
-import { Header } from "./components/header/header";
+import { MainWrapper } from "./components/utils-components/main-wrapper/main-wrapper";
 
 const App: FC = () => {
   return (
-    <div className="container">
-      <Header />
-      <AppRouter />
-    </div>
+    <>
+      <MainWrapper />
+    </>
   );
 };
 

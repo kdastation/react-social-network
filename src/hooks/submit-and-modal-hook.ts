@@ -16,7 +16,6 @@ export function useSubmitAndModal<T>(
     useModalWithContext();
 
   const submitData = async (data: T) => {
-    debugger;
     try {
       await performAnActionWithApi(data);
       notifyUser(messageSuccess);

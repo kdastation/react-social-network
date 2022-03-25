@@ -5,10 +5,11 @@ import { usePosts } from "../../hooks/posts-hook";
 interface PostsProps {
   nameUser: string;
   isAuth: boolean;
+  userAvatar?: string;
 }
 //TODO: Доделать
 const Posts: FC<PostsProps> = memo((props) => {
-  const { nameUser, isAuth } = props;
+  const { nameUser, isAuth, userAvatar } = props;
   const {
     posts,
     changeFilter,
@@ -18,7 +19,7 @@ const Posts: FC<PostsProps> = memo((props) => {
     isLoading,
   } = usePosts(nameUser);
   console.log("render");
-  const postsBlock = renderPosts(posts, isAuth);
+  const postsBlock = renderPosts(posts, isAuth, userAvatar);
 
   return (
     <div>

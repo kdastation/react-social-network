@@ -8,6 +8,8 @@ import { updatePost } from "../../../services/api-service/posts-api-service";
 
 interface PostForPageProps {
   post: IPost;
+  userAvatar?: string;
+  visibleComments?: Function;
 }
 
 //TODO: Доделать

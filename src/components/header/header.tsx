@@ -5,6 +5,7 @@ import { HeaderPublic } from "./header-public/header-public";
 import { HeaderPrivate } from "./header-private/header-private";
 import { AppBar, Container } from "@mui/material";
 
+//TODO: Прокинуть isAuth и userName в пропсах
 const Header: FC = () => {
   const isAuth = useSelector(AuthSelector.getIsAuthStatus);
 
