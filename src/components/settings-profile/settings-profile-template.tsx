@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { useMode } from "../../hooks/mode-hook";
@@ -31,10 +32,13 @@ const SettingsProfileTemplate: FC<SettingsProfileTemplateProps> = (props) => {
         </div>
       )}
       {editMode && (
-        <FormForChange
-          userName={userName}
-          deactivateEditMode={deactivateEditMode}
-        />
+        <div>
+          <Button onClick={deactivateEditMode}>Отменить</Button>
+          <FormForChange
+            userName={userName}
+            deactivateEditMode={deactivateEditMode}
+          />
+        </div>
       )}
     </div>
   );

@@ -2,7 +2,7 @@ import { apiUrlNames } from "./../const-api-service";
 import axios from "axios";
 import { GeneralUserApiServise } from "./user-api-service";
 
-interface DataForChangeCityUser {
+export interface DataForChangeCityUser {
   newCity: string;
   userName: string;
 }

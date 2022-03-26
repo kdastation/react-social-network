@@ -25,7 +25,9 @@ const ProfileInformations: FC<ProfileInformationsProps> = memo((props) => {
           </div>
           <div className={styles.detail_informations_user}>
             <div className={styles.name_category}>Родной город:</div>
-            <div className={styles.content_category}>Санкт-Петербург</div>
+            <div className={styles.content_category}>
+              {userData?.city || "Неизвестно"}
+            </div>
           </div>
           <div className={styles.detail_informations_user}>
             <div className={styles.name_category}>Языки:</div>
