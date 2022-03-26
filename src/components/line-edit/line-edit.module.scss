@@ -1,0 +1,19 @@
+.line {
+  height: 2px;
+  background-color: gray;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+}
+
+.link_edit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+}

@@ -6,7 +6,6 @@ import {
 } from "../../services/components-service/render-components-service";
 import { List } from "../list/list";
 import { FormCreateComments } from "../forms/form-create-comment/form-create-comment";
-import { debug } from "console";
 
 interface CommentsPostProps {
   idPost: number;

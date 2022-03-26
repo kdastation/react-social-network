@@ -5,7 +5,6 @@
 .profile_inforamations_wrapper {
   display: flex;
   gap: 15px;
-  margin-bottom: 20px;
 }
 
 .avatar {
@@ -25,4 +24,28 @@
 .name_user {
   font-size: 16px;
   font-weight: 700;
+}
+
+.informations_text {
+  flex-grow: 1;
+}
+
+.detail_informations_user {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.name_category {
+  width: 120px;
+  overflow-wrap: break-word;
+}
+
+.content_category {
+  flex-grow: 1;
+  overflow-wrap: break-word;
+}
+
+.line_edit {
+  margin-bottom: 10px;
 }

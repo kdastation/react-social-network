@@ -9,6 +9,7 @@ export const usePosts = (nameUser: string) => {
   const [isCanFetching, setIsCanFetching] = useState<boolean>(true);
   const [posts, setPosts] = useState<IPost[]>([]);
   const [totalCountPosts, setTotalCountPosts] = useState<number>(0);
+  const [filter, setFilter] = useState(false);
   const {
     currentPage,
     loadMoreItems,
@@ -16,19 +17,7 @@ export const usePosts = (nameUser: string) => {
     quantityOfPageNumbers,
     isCanDownloadMore,
   } = usePaginationButton(totalCountPosts, 3, 1);
-  const [filter, setFilter] = useState(false);
   const isANeedFilter = quantityOfPageNumbers > 1;
-  useEffect(() => {
-    if (isCanFetching) {
-      setIsLoading(true);
-      getAllPostsUser(nameUser, currentPage, filter).then((data) => {
-        setPosts([...posts, ...data.posts]);
-        setTotalCountPosts(data.totalCountPosts);
-        setIsLoading(false);
-      });
-    }
-  }, [nameUser, currentPage, filter, isCanFetching]);
-
   const changeFilter = () => {
     setIsCanFetching(false);
     setFilter(!filter);
@@ -41,6 +30,23 @@ export const usePosts = (nameUser: string) => {
     resetCurrentPage();
     setTotalCountPosts(0);
   };
+
+  useEffect(() => {
+    setIsCanFetching(false);
+    resetState();
+    setIsCanFetching(true);
+  }, [nameUser]);
+
+  useEffect(() => {
+    if (isCanFetching) {
+      setIsLoading(true);
+      getAllPostsUser(nameUser, currentPage, filter).then((data) => {
+        setPosts([...posts, ...data.posts]);
+        setTotalCountPosts(data.totalCountPosts);
+        setIsLoading(false);
+      });
+    }
+  }, [currentPage, filter, isCanFetching]);
 
   return {
     isLoading,

@@ -25,6 +25,7 @@ const useUserProfile = (): IUseUser => {
   const fetchUserData = () => {
     //TODO: переделать это безобразие
     setIsLoading(true);
+    setError(null);
     GeneralUserApiServise.getUserInformation(userNameForParams)
       .then((user) => {
         const isUseExists = !!user;
