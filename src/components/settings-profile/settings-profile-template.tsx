@@ -1,10 +1,20 @@
 import { FC } from "react";
-import { PasswordChangeForm } from "../forms/password-change-form/password-change-form";
-import { useMode } from "../../hooks/mode-hook";
 import { useSelector } from "react-redux";
+import { useMode } from "../../hooks/mode-hook";
 import { AuthSelector } from "../../selectors/auth-selector";
 
-const SettingsPassword: FC = () => {
+export interface FormForChangeProps {
+  deactivateEditMode: () => void;
+  userName: string | null;
+}
+
+interface SettingsProfileTemplateProps {
+  nameSetting: string;
+  FormForChange: FC<FormForChangeProps>;
+}
+
+const SettingsProfileTemplate: FC<SettingsProfileTemplateProps> = (props) => {
+  const { FormForChange, nameSetting } = props;
   const {
     activateMode: activateEditeMode,
     mode: editMode,
@@ -16,18 +26,18 @@ const SettingsPassword: FC = () => {
     <div>
       {!editMode && (
         <div>
-          Пароль
+          {nameSetting}
           <button onClick={activateEditeMode}>Редактировать</button>
         </div>
       )}
       {editMode && (
-        <PasswordChangeForm
-          deactivateEditMode={deactivateEditMode}
+        <FormForChange
           userName={userName}
+          deactivateEditMode={deactivateEditMode}
         />
       )}
     </div>
   );
 };
 
-export { SettingsPassword };
+export { SettingsProfileTemplate };

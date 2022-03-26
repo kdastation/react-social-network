@@ -8,18 +8,14 @@ import { useSubmitAndModal } from "../../../hooks/submit-and-modal-hook";
 import { IUser } from "../../../models/user-models/user-model";
 import { changePasswordUser } from "../../../services/api-service/user-api-servise/user-api-service";
 import { CustomModal } from "../../custom-modal/custom-modal";
-
-interface PasswordChangeFormProps {
-  deactivateEditMode: Function;
-  userName: string | null;
-}
+import { FormForChangeProps } from "../../settings-profile/settings-profile-template";
 
 export interface PasswordChangeFormFields {
   password: string;
   confirmPassword: string;
 }
 
-const PasswordChangeForm: FC<PasswordChangeFormProps> = (props) => {
+const PasswordChangeForm: FC<FormForChangeProps> = (props) => {
   const { deactivateEditMode, userName } = props;
   const { submitData, message, isVisibleModal, defaultOnCloseModal } =
     useSubmitAndModal<PasswordChangeFormFields>(

@@ -9,6 +9,7 @@ export function useFetch<T>(getData: Function, params: any): fetchType<T> {
 
   useEffect(() => {
     setIsLoading(true);
+    setErrorMessage(null);
     getData(params)
       .then((receviedData: T) => setData(receviedData))
       .catch((error: Error) => setErrorMessage(error.message))

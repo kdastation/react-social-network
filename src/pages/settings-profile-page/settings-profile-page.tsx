@@ -1,11 +1,15 @@
 import { FC } from "react";
-import { SettingsPassword } from "../../components/settings-profile/settings-password";
+import { PasswordChangeForm } from "../../components/forms/password-change-form/password-change-form";
+import { SettingsProfileTemplate } from "../../components/settings-profile/settings-profile-template";
 
 const SettingProfilePage: FC = () => {
   return (
     <div>
       SETTINGS
-      <SettingsPassword />
+      <SettingsProfileTemplate
+        FormForChange={PasswordChangeForm}
+        nameSetting="пароль"
+      />
     </div>
   );
 };
