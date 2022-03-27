@@ -37,6 +37,6 @@ export const DataCities: ICity[] = [
   },
 ];
 
-interface ICity {
+export interface ICity {
   name: string;
 }

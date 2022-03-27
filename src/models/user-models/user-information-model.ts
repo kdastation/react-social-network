@@ -3,4 +3,5 @@ export interface IUserInformation {
   name: string;
   img?: string;
   city?: string;
+  languages?: string[];
 }

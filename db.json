@@ -63,8 +63,8 @@
       "id": 10
     },
     {
-      "content": "qweqwewqewqeqeqweqe",
       "nameAuthor": "kunistation",
+      "content": "qweqwewqewqeqeqweqedsadsadasd",
       "id": 23
     },
     {
@@ -96,6 +96,11 @@
       "content": "wqeqweqeqewqeqe",
       "nameAuthor": "kunistation",
       "id": 29
+    },
+    {
+      "content": "eqweqwewqeqweqweq",
+      "nameAuthor": "kunistation",
+      "id": 30
     }
   ],
   "commentsPost": [
@@ -302,7 +307,8 @@
     {
       "id": 1,
       "name": "Johny",
-      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg"
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg",
+      "city": "Воронеж"
     },
     {
       "name": "newUSer",
@@ -313,7 +319,10 @@
       "name": "kunistation",
       "id": 3,
       "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg",
-      "city": "Оренбург"
+      "city": "Буйнакск",
+      "languages": [
+        "English"
+      ]
     },
     {
       "name": "freya",

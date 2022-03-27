@@ -1,6 +1,8 @@
 import { FC, memo } from "react";
 import { IUserInformation } from "../../models/user-models/user-information-model";
+import { renderLanguage } from "../../services/components-service/render-components-service";
 import { LineEdit } from "../line-edit/line-edit";
+import { List } from "../list/list";
 import styles from "./profile-informations.module.scss";
 
 interface ProfileInformationsProps {
@@ -31,7 +33,13 @@ const ProfileInformations: FC<ProfileInformationsProps> = memo((props) => {
           </div>
           <div className={styles.detail_informations_user}>
             <div className={styles.name_category}>Языки:</div>
-            <div className={styles.content_category}>Русский</div>
+            <div className={styles.content_category}>
+              {userData.languages ? (
+                <List items={userData.languages} renderItem={renderLanguage} />
+              ) : (
+                "Неизвестно"
+              )}
+            </div>
           </div>
         </div>
       </div>

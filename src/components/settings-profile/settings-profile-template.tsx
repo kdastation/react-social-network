@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useSelector } from "react-redux";
 import { useMode } from "../../hooks/mode-hook";
 import { AuthSelector } from "../../selectors/auth-selector";
+import styles from "./settings-profile-template.module.scss";
 
 export interface FormForChangeProps {
   deactivateEditMode: () => void;
@@ -26,9 +27,9 @@ const SettingsProfileTemplate: FC<SettingsProfileTemplateProps> = (props) => {
   return (
     <div>
       {!editMode && (
-        <div>
-          {nameSetting}
-          <button onClick={activateEditeMode}>Редактировать</button>
+        <div className={styles.setting_wrapper}>
+          <div className={styles.name_setting}>{nameSetting}</div>
+          <Button onClick={activateEditeMode}>Изменить</Button>
         </div>
       )}
       {editMode && (

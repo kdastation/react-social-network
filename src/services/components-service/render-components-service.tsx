@@ -1,4 +1,7 @@
+import { MenuItem } from "@mui/material";
 import { CommentPost } from "../../components/comments-post/comment-post/comment-post";
+import { ICity } from "../../components/forms/city-change-form/data-city";
+import { Language } from "../../components/language/language";
 import { UserItem } from "../../components/list-users/user-item/user-item";
 import { Loader } from "../../components/loader/loader";
 import { DefaultPost } from "../../components/posts/default-post/default-post";
@@ -56,4 +59,16 @@ export const renderPosts = (
   return posts.map((post) => {
     return renderPost(post, isAuth, userAvatar);
   });
+};
+
+export const renderLanguage = (language: string) => {
+  return <Language key={language} name={language} />;
+};
+
+export const renderCityInSelect = (city: ICity) => {
+  return (
+    <MenuItem key={city.name} value={city.name}>
+      {city.name}
+    </MenuItem>
+  );
 };

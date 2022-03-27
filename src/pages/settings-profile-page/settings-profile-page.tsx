@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { CityChangeForm } from "../../components/forms/city-change-form/city-change-form";
+import { LanguageChangeForm } from "../../components/forms/language-change-form/language-change-form";
 import { PasswordChangeForm } from "../../components/forms/password-change-form/password-change-form";
 import { SettingsProfileTemplate } from "../../components/settings-profile/settings-profile-template";
 
@@ -9,11 +10,15 @@ const SettingProfilePage: FC = () => {
       SETTINGS
       <SettingsProfileTemplate
         FormForChange={PasswordChangeForm}
-        nameSetting="пароль"
+        nameSetting="Пароль"
       />
       <SettingsProfileTemplate
         FormForChange={CityChangeForm}
-        nameSetting="город"
+        nameSetting="Город"
+      />
+      <SettingsProfileTemplate
+        FormForChange={LanguageChangeForm}
+        nameSetting="Языки"
       />
     </div>
   );

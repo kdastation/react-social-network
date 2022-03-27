@@ -16,6 +16,7 @@ import { CustomModal } from "../../custom-modal/custom-modal";
 import { FormForChangeProps } from "../../settings-profile/settings-profile-template";
 import { DataCities } from "./data-city";
 
+//TODO: Доделать
 const CityChangeForm: FC<FormForChangeProps> = (props) => {
   const { userName, deactivateEditMode } = props;
 
