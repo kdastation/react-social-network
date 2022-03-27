@@ -12,25 +12,17 @@ const MainWrapper: FC = () => {
 
   return (
     <div>
-      {isAuth && activeUserName && (
-        <div className={styles.container}>
-          <Header />
-          <div className={styles.app_wrapper}>
-            <div className={styles.app_side_bar}>
-              <SideBar activeUserName={activeUserName} />
-            </div>
-            <div className={styles.main_content}>
-              <AppRouter />
-            </div>
+      <div className={styles.container}>
+        <Header />
+        <div className={styles.app_wrapper}>
+          <div className={styles.app_side_bar}>
+            <SideBar isAuth={isAuth} activeUserName={activeUserName} />
+          </div>
+          <div className={styles.main_content}>
+            <AppRouter />
           </div>
         </div>
-      )}
-      {!isAuth && (
-        <div className={styles.container}>
-          <Header />
-          <AppRouter />
-        </div>
-      )}
+      </div>
     </div>
   );
 };

@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import { AuthSelector } from "../../selectors/auth-selector";
 import { HeaderPublic } from "./header-public/header-public";
 import { HeaderPrivate } from "./header-private/header-private";
-import { AppBar, Container } from "@mui/material";
+import { Container } from "@mui/material";
+import styles from "./header.module.scss";
 
 //TODO: Прокинуть isAuth и userName в пропсах
 const Header: FC = () => {
@@ -13,9 +14,9 @@ const Header: FC = () => {
 
   return (
     <>
-      <AppBar sx={{ backgroundColor: "gainsboro" }} position="static">
+      <div className={styles.wrapper}>
         <Container>{headerNavigation}</Container>
-      </AppBar>
+      </div>
     </>
   );
 };

@@ -21,9 +21,6 @@ const MenuHeaderPublic: FC = () => {
           <Link to={RoutesNames.HOME}>Home</Link>
         </MenuItem>
         <MenuItem onClick={menu.onClose}>
-          <Link to={RoutesNames.LOGIN}>Login</Link>
-        </MenuItem>
-        <MenuItem onClick={menu.onClose}>
           <Link to={RoutesNames.REGISTRATION}>Registration</Link>
         </MenuItem>
       </Menu>

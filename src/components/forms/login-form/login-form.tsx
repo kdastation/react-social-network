@@ -1,10 +1,10 @@
-import "./login-form.css";
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { authorizeUser } from "../../../middlewares/auth-middleware/auth-middleware";
 import { Button, TextField } from "@mui/material";
 import { CustomInput } from "../../custom-input/custom-input";
 import { useForm } from "react-hook-form";
+import styles from "./login-form.module.scss";
 
 interface FormLoginField {
   login: string;
@@ -31,27 +31,33 @@ const LoginForm: FC = () => {
     <div className="login-form">
       {error && <div>{error}</div>}
       <form onSubmit={handleSubmit(loginUserOnClick)}>
-        <CustomInput
-          Component={TextField}
-          control={control}
-          name="login"
-          label="login"
-          additionalErrorIndicator={!!error}
-        />
-        <CustomInput
-          Component={TextField}
-          control={control}
-          name="password"
-          label="password"
-          type="password"
-          additionalErrorIndicator={!!error}
-        />
-        <Button
-          type="submit"
-          disabled={!formState.isValid || formState.isSubmitting}
-        >
-          Логин
-        </Button>
+        <div className={styles.login_input}>
+          <CustomInput
+            Component={TextField}
+            control={control}
+            name="login"
+            label="login"
+            additionalErrorIndicator={!!error}
+          />
+        </div>
+        <div className={styles.login_input}>
+          <CustomInput
+            Component={TextField}
+            control={control}
+            name="password"
+            label="password"
+            type="password"
+            additionalErrorIndicator={!!error}
+          />
+        </div>
+        <div>
+          <Button
+            type="submit"
+            disabled={!formState.isValid || formState.isSubmitting}
+          >
+            Логин
+          </Button>
+        </div>
       </form>
     </div>
   );

@@ -34,6 +34,11 @@
       "name": "qwe",
       "password": "qwe",
       "id": 7
+    },
+    {
+      "name": "zxc",
+      "password": "zxc",
+      "id": 8
     }
   ],
   "posts": [
@@ -101,6 +106,11 @@
       "content": "eqweqwewqeqweqweq",
       "nameAuthor": "kunistation",
       "id": 30
+    },
+    {
+      "nameAuthor": "zxc",
+      "content": "qwewqeqewqewqeqeq",
+      "id": 31
     }
   ],
   "commentsPost": [
@@ -343,6 +353,11 @@
       "name": "qwe",
       "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg",
       "id": 7
+    },
+    {
+      "name": "zxc",
+      "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg",
+      "id": 8
     }
   ]
 }

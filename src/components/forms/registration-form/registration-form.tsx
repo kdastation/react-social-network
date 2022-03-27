@@ -8,6 +8,7 @@ import {
 } from "../../../validators/validators-form-registration";
 import { useForm } from "react-hook-form";
 import { MemoCustomInput } from "../../custom-input/custom-input";
+import styles from "./registration-wrapper.module.scss";
 
 export interface FormRegistrationField {
   name: string;
@@ -30,27 +31,33 @@ const RegistrationForm: FC = () => {
   return (
     <div className="registration-form">
       <form onSubmit={handleSubmit(registerUserOnClick)}>
-        <MemoCustomInput
-          Component={TextField}
-          name="name"
-          control={control}
-          validators={validatorsFormRegistrationFieldLogin}
-          label="login"
-        />
-        <MemoCustomInput
-          type="password"
-          control={control}
-          name="password"
-          validators={validatorsFormRegistrationFieldPassword}
-          label="password"
-          Component={TextField}
-        />
-        <Button
-          type="submit"
-          disabled={!formState.isValid || formState.isSubmitting}
-        >
-          Зарегистроваться
-        </Button>
+        <div className={styles.input_wrapper}>
+          <MemoCustomInput
+            Component={TextField}
+            name="name"
+            control={control}
+            validators={validatorsFormRegistrationFieldLogin}
+            label="login"
+          />
+        </div>
+        <div className={styles.input_wrapper}>
+          <MemoCustomInput
+            type="password"
+            control={control}
+            name="password"
+            validators={validatorsFormRegistrationFieldPassword}
+            label="password"
+            Component={TextField}
+          />
+        </div>
+        <div className={styles.btn_wrapper}>
+          <Button
+            type="submit"
+            disabled={!formState.isValid || formState.isSubmitting}
+          >
+            Зарегистроваться
+          </Button>
+        </div>
       </form>
     </div>
   );

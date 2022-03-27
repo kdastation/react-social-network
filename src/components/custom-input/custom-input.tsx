@@ -31,6 +31,7 @@ const CustomInput: FC<CustomInputProps> = (props) => {
       rules={validators}
       render={({ field, fieldState: { error } }) => (
         <Component
+          sx={{ width: "100%" }}
           type={type}
           error={!!error?.message || additionalErrorIndicator}
           helperText={error?.message}
