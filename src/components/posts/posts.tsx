@@ -23,6 +23,7 @@ const Posts: FC<PostsProps> = memo((props) => {
     isLoading,
     totalCountPosts,
     filterStatus,
+    isFetching,
   } = usePosts(nameUser);
   console.log("render");
 
@@ -39,7 +40,7 @@ const Posts: FC<PostsProps> = memo((props) => {
       {totalCountPosts > 0 && renderPosts(posts, isAuth, userAvatar)}
       {isCanDownloadMore && (
         <div className={styles.btn_load_more_wrapper}>
-          <LoadMoreButton loadMore={loadMorePosts} />
+          <LoadMoreButton isFetching={isFetching} loadMore={loadMorePosts} />
         </div>
       )}
       {isLoading && (
@@ -50,9 +51,5 @@ const Posts: FC<PostsProps> = memo((props) => {
     </div>
   );
 });
-
-//TODO: Придумать, как переделать
-// {/* <List items={posts}
-//             renderItem={renderPost}/> */}
 
 export { Posts };

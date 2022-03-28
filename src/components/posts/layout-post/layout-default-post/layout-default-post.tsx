@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { IPost } from "../../../models/post-model";
+import { IPost } from "../../../../models/post-model";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import { Button } from "@mui/material";
-import { MorePostMenu } from "../more-post-menu/more-post-menu";
-import styles from "./default-post.module.scss";
+import { MorePostMenu } from "../../more-post-menu/more-post-menu";
+import styles from "./layout-default-post.module.scss";
 
 interface DefaultPostProps {
   post: IPost;

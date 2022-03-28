@@ -1,10 +1,7 @@
 import { FC } from "react";
 import { useUserProfile } from "../../hooks/user-profile-hook";
 import { ProfileInformations } from "../../components/profile-informations/profile-informations";
-import {
-  renderError,
-  renderLoading,
-} from "../../services/components-service/render-components-service";
+import { renderError } from "../../services/components-service/render-components-service";
 import { Posts } from "../../components/posts/posts";
 import { DefaultLoader } from "../../components/loaders/default-loader/default-loader";
 import styles from "./profile-page.module.scss";

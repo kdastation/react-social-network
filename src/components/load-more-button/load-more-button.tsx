@@ -3,13 +3,16 @@ import { FC } from "react";
 
 interface LoadMoreButtonProps {
   loadMore: () => void;
+  isFetching: boolean;
 }
 
 const LoadMoreButton: FC<LoadMoreButtonProps> = (props) => {
-  const { loadMore } = props;
+  const { loadMore, isFetching } = props;
   return (
     <>
-      <Button onClick={loadMore}>Загрузить еще</Button>
+      <Button disabled={isFetching} onClick={loadMore}>
+        Загрузить еще
+      </Button>
     </>
   );
 };

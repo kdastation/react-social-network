@@ -1,25 +1,29 @@
 import { FC } from "react";
-import { Post } from "../../components/posts/post/post";
-import { DefaultPost } from "../../components/posts/default-post/default-post";
+import { DefaultLoader } from "../../components/loaders/default-loader/default-loader";
 import { PostForPage } from "../../components/posts/post-for-page/post-for-page";
 import { usePostPage } from "../../hooks/post-page-hook";
-import { DeletePost } from "../../components/delete-post/delete-post";
+import styles from "./post-page.module.scss";
 
 const PostPage: FC = () => {
   const { error, idPost, isAuth, isLoading, isPostAuthor, dataPost } =
     usePostPage();
-  console.log(dataPost, isLoading, error);
+
   return (
     <div>
-      {!isLoading && dataPost && !isPostAuthor ? (
-        <Post isAuth={isAuth} post={dataPost} Component={DefaultPost} />
-      ) : null}
-      {!isLoading && dataPost && isPostAuthor ? (
-        <Post isAuth={isAuth} post={dataPost} Component={PostForPage} />
-      ) : null}
-      {!isLoading && dataPost && isAuth && isPostAuthor ? (
-        <DeletePost post={dataPost} />
-      ) : null}
+      {isLoading && (
+        <div className={styles.loader_wrapper}>
+          <DefaultLoader />
+        </div>
+      )}
+      {!error && !isLoading && (
+        <div>
+          <div className={styles.title}>Страница поста номер {idPost}</div>
+          {dataPost && (
+            <PostForPage isPostAuthor={isPostAuthor} post={dataPost} />
+          )}
+        </div>
+      )}
+      {error && <div className={styles.error_wrapper}>Пост не найден...</div>}
     </div>
   );
 };

@@ -5,9 +5,12 @@ import {
   FormUpdatePost,
 } from "../../forms/form-update-post/form-update-post";
 import { updatePost } from "../../../services/api-service/posts-api-service";
+import { LayoutPostForPage } from "./layout-post-for-page/layout-post-for-page";
+import { useMode } from "../../../hooks/mode-hook";
 
 interface PostForPageProps {
   post: IPost;
+  isPostAuthor: boolean;
   userAvatar?: string;
   visibleComments?: Function;
 }
@@ -15,13 +18,13 @@ interface PostForPageProps {
 //TODO: Доделать
 
 const PostForPage: FC<PostForPageProps> = (props) => {
-  const { post } = props;
+  const { post, isPostAuthor } = props;
   const [content, setContent] = useState<string>(post.content);
-  const [editMode, setEditMode] = useState<boolean>(false);
-
-  const activateEditMode = () => {
-    setEditMode(true);
-  };
+  const {
+    activateMode: activateEditMode,
+    deactivateMode: deactivateEditMode,
+    mode: isEditMode,
+  } = useMode();
 
   const updatePostOnClick = async (data: FormUpdatePostField) => {
     try {
@@ -35,16 +38,19 @@ const PostForPage: FC<PostForPageProps> = (props) => {
     } catch (error) {
       console.log(error);
     } finally {
-      setEditMode(false);
+      deactivateEditMode();
     }
   };
   return (
     <div>
-      POST FOR PAGE
-      {!editMode ? (
+      {!isEditMode ? (
         <div>
-          <div>{content}</div>
-          <button onClick={activateEditMode}>Редактировать</button>
+          <LayoutPostForPage
+            content={content}
+            activateEditMode={activateEditMode}
+            isPostAuthor={isPostAuthor}
+            post={post}
+          />
         </div>
       ) : (
         <FormUpdatePost

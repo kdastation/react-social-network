@@ -2,14 +2,26 @@ import { usePaginationButton } from "./pagination-button-hook";
 import { useEffect, useState } from "react";
 import { IPost } from "../models/post-model";
 import { getAllPostsUser } from "../services/api-service/posts-api-service";
+import { useFetching } from "./fetching-hook";
 
 //TODO: Доделать
 export const usePosts = (nameUser: string) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isCanFetching, setIsCanFetching] = useState<boolean>(true);
   const [posts, setPosts] = useState<IPost[]>([]);
   const [totalCountPosts, setTotalCountPosts] = useState<number>(0);
   const [filter, setFilter] = useState(false);
+
+  const {
+    error,
+    fetching: fetchPosts,
+    isLoading,
+    isFetching,
+  } = useFetching(async () => {
+    const receviedPosts = await getAllPostsUser(nameUser, currentPage, filter);
+    setPosts([...posts, ...receviedPosts.posts]);
+    setTotalCountPosts(receviedPosts.totalCountPosts);
+  });
+
   const {
     currentPage,
     loadMoreItems,
@@ -17,7 +29,7 @@ export const usePosts = (nameUser: string) => {
     quantityOfPageNumbers,
     isCanDownloadMore,
   } = usePaginationButton(totalCountPosts, 3, 1);
-  const isANeedFilter = quantityOfPageNumbers > 1;
+
   const changeFilter = () => {
     setIsCanFetching(false);
     setFilter(!filter);
@@ -39,23 +51,22 @@ export const usePosts = (nameUser: string) => {
 
   useEffect(() => {
     if (isCanFetching) {
-      setIsLoading(true);
-      getAllPostsUser(nameUser, currentPage, filter).then((data) => {
-        setPosts([...posts, ...data.posts]);
-        setTotalCountPosts(data.totalCountPosts);
-        setIsLoading(false);
-      });
+      fetchPosts();
     }
   }, [currentPage, filter, isCanFetching]);
 
+  const isANeedFilter = quantityOfPageNumbers > 1;
+
   return {
+    loadMorePosts: loadMoreItems,
+    changeFilter,
     isLoading,
     posts,
     isANeedFilter,
     isCanDownloadMore,
-    loadMorePosts: loadMoreItems,
-    changeFilter,
     totalCountPosts,
     filterStatus: filter,
+    error,
+    isFetching,
   };
 };

@@ -4,7 +4,6 @@ import { ICity } from "../../components/forms/city-change-form/data-city";
 import { Language } from "../../components/language/language";
 import { UserItem } from "../../components/list-users/user-item/user-item";
 import { Loader } from "../../components/loaders/loader";
-import { DefaultPost } from "../../components/posts/default-post/default-post";
 import { Post } from "../../components/posts/post/post";
 import { IComment } from "../../models/comment-model";
 import { IPost } from "../../models/post-model";
@@ -31,7 +30,6 @@ export const renderPost = (
   return (
     <Post
       isAuth={isAuth}
-      Component={DefaultPost}
       key={`${post.nameAuthor}_${post.id}`}
       post={post}
       userAvatar={userAvatar}
