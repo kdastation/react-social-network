@@ -3,7 +3,7 @@ import { CommentPost } from "../../components/comments-post/comment-post/comment
 import { ICity } from "../../components/forms/city-change-form/data-city";
 import { Language } from "../../components/language/language";
 import { UserItem } from "../../components/list-users/user-item/user-item";
-import { Loader } from "../../components/loader/loader";
+import { Loader } from "../../components/loaders/loader";
 import { DefaultPost } from "../../components/posts/default-post/default-post";
 import { Post } from "../../components/posts/post/post";
 import { IComment } from "../../models/comment-model";

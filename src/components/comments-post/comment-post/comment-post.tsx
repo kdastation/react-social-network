@@ -39,18 +39,3 @@ const CommentPost: FC<CommentPostProps> = memo((props) => {
 });
 
 export { CommentPost };
-
-{
-  /* <div>
-                {comment.nameAuthor}
-            </div>
-            <div>
-                {comment.id}
-            </div>
-            <div>
-                {comment.idPost}
-            </div>
-            <div>
-                {comment.content}
-            </div> */
-}

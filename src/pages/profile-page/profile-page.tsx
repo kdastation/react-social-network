@@ -6,18 +6,22 @@ import {
   renderLoading,
 } from "../../services/components-service/render-components-service";
 import { Posts } from "../../components/posts/posts";
+import { DefaultLoader } from "../../components/loaders/default-loader/default-loader";
 import styles from "./profile-page.module.scss";
 
 const ProfilePage: FC = () => {
   const { errorMessage, isActiveUser, isAuth, isLoading, userData } =
     useUserProfile();
 
-  const loading = renderLoading(isLoading);
   const error = renderError(isLoading, errorMessage);
 
   return (
     <div>
-      {loading}
+      {isLoading && (
+        <div className={styles.loader_wrapper}>
+          <DefaultLoader />
+        </div>
+      )}
       {error}
       <div className={styles.profile_informations_wrapper}>
         {!isLoading && !errorMessage && (

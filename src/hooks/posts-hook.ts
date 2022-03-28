@@ -55,5 +55,7 @@ export const usePosts = (nameUser: string) => {
     isCanDownloadMore,
     loadMorePosts: loadMoreItems,
     changeFilter,
+    totalCountPosts,
+    filterStatus: filter,
   };
 };

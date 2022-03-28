@@ -1,8 +1,6 @@
 import { Button } from "@mui/material";
 import { FC } from "react";
-import { useSelector } from "react-redux";
 import { useMode } from "../../hooks/mode-hook";
-import { AuthSelector } from "../../selectors/auth-selector";
 import styles from "./settings-profile-template.module.scss";
 
 export interface FormForChangeProps {
@@ -13,16 +11,16 @@ export interface FormForChangeProps {
 interface SettingsProfileTemplateProps {
   nameSetting: string;
   FormForChange: FC<FormForChangeProps>;
+  userName: string | null;
 }
 
 const SettingsProfileTemplate: FC<SettingsProfileTemplateProps> = (props) => {
-  const { FormForChange, nameSetting } = props;
+  const { FormForChange, nameSetting, userName } = props;
   const {
     activateMode: activateEditeMode,
     mode: editMode,
     deactivateMode: deactivateEditMode,
   } = useMode();
-  const userName = useSelector(AuthSelector.getUserName);
 
   return (
     <div>
@@ -34,7 +32,9 @@ const SettingsProfileTemplate: FC<SettingsProfileTemplateProps> = (props) => {
       )}
       {editMode && (
         <div>
-          <Button onClick={deactivateEditMode}>Отменить</Button>
+          <div className={styles.btn_cancel_wrapper}>
+            <Button onClick={deactivateEditMode}>Отменить</Button>
+          </div>
           <FormForChange
             userName={userName}
             deactivateEditMode={deactivateEditMode}
