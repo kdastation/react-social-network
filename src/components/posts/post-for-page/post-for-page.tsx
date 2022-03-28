@@ -5,7 +5,7 @@ import {
   FormUpdatePost,
 } from "../../forms/form-update-post/form-update-post";
 import { updatePost } from "../../../services/api-service/posts-api-service";
-import { LayoutPostForPage } from "./layout-post-for-page/layout-post-for-page";
+import { LayoutPostForPage } from "../layout-post/layout-post-for-page/layout-post-for-page";
 import { useMode } from "../../../hooks/mode-hook";
 
 interface PostForPageProps {
