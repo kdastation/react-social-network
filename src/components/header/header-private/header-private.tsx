@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AuthSelector } from "../../../selectors/auth-selector";
-import { logOut } from "../../../middlewares/auth-middleware/auth-middleware";
+import { logOut } from "../../../async-thunks/auth-async-thunks/auth-async-thunks";
+import { AuthSelector } from "../../../redux/selectors/auth-selector";
 import { MenuHeaderPrivate } from "./menu-header-private/menu-header-private";
 import { Button } from "@mui/material";
 import styles from "./header-private.module.scss";

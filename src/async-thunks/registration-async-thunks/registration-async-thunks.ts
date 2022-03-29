@@ -1,7 +1,7 @@
 import { IUser } from "../../models/user-models/user-model";
 import { appDispatch } from "../../redux/store";
 import { ApiRegisterUser } from "../../services/api-service/user-api-servise/rigister-user-api";
-import { loginUser } from "../auth-middleware/auth-middleware";
+import { loginUser } from "../auth-async-thunks/auth-async-thunks";
 
 //TODO: Доделать регистрацию
 /**

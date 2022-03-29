@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { AuthSelector } from "../../../selectors/auth-selector";
+import { AuthSelector } from "../../../redux/selectors/auth-selector";
 import { Header } from "../../header/header";
 import { SideBar } from "../../side-bar/side-bar";
 import { AppRouter } from "../app-router/app-router";

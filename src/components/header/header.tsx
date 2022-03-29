@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { AuthSelector } from "../../selectors/auth-selector";
+import { AuthSelector } from "../../redux/selectors/auth-selector";
 import { HeaderPublic } from "./header-public/header-public";
 import { HeaderPrivate } from "./header-private/header-private";
 import { Container } from "@mui/material";

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { IPost } from "../models/post-model";
+import { AuthSelector } from "../redux/selectors/auth-selector";
 import { ParamPostPage } from "../routes/consts-routes";
-import { AuthSelector } from "../selectors/auth-selector";
 import { getPost } from "../services/api-service/posts-api-service";
 import { useFetch } from "./fetch-hook";
 

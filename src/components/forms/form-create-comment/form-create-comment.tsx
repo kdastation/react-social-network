@@ -6,9 +6,9 @@ import { Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { validatorsFormCreateComment } from "../../../validators/validators-form-create-comment";
 import { useCreateNewCommentConcretePostMutation } from "../../../redux/reducers-query/comments-reducer-query";
-import { AuthSelector } from "../../../selectors/auth-selector";
 import { CustomMultilineInput } from "../../custom-input/custom-multiline-input/custom-multiline-input";
 import styles from "./form-create-comment.module.scss";
+import { AuthSelector } from "../../../redux/selectors/auth-selector";
 
 interface FormCreateCommentsFields {
   content: string;

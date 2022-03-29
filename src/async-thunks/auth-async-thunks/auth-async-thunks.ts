@@ -7,7 +7,7 @@ import {
   deleteUserInformationForLocalStorage,
   getUserInformationForLocalStorage,
   AuthConsts,
-} from "./service-auth-middleware";
+} from "./service-auth-async-thunks";
 import {
   logOutOfUserAccount,
   setLoadingUser,

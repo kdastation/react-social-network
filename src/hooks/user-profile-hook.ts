@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { ParamProfilePage } from "../routes/consts-routes";
-import { AuthSelector } from "../selectors/auth-selector";
 import { GeneralUserApiServise } from "../services/api-service/user-api-servise/user-api-service";
+import { AuthSelector } from "../redux/selectors/auth-selector";
 
 interface IUseUser {
   isActiveUser: boolean;

@@ -3,7 +3,7 @@ import { FC } from "react";
 import { privateRoutes } from "../../../routes/private-routes";
 import { publicRoutes } from "../../../routes/public-routes";
 import { useSelector } from "react-redux";
-import { AuthSelector } from "../../../selectors/auth-selector";
+import { AuthSelector } from "../../../redux/selectors/auth-selector";
 import { RoutesNames } from "../../../routes/consts-routes";
 
 //TODO: Немного передалть

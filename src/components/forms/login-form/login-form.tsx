@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
-import { authorizeUser } from "../../../middlewares/auth-middleware/auth-middleware";
 import { Button, TextField } from "@mui/material";
 import { CustomInput } from "../../custom-input/custom-input";
 import { useForm } from "react-hook-form";
+import { authorizeUser } from "../../../async-thunks/auth-async-thunks/auth-async-thunks";
 import styles from "./login-form.module.scss";
 
 interface FormLoginField {

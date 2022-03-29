@@ -4,7 +4,7 @@ import { CityChangeForm } from "../../components/forms/city-change-form/city-cha
 import { LanguageChangeForm } from "../../components/forms/language-change-form/language-change-form";
 import { PasswordChangeForm } from "../../components/forms/password-change-form/password-change-form";
 import { SettingsProfileTemplate } from "../../components/settings-profile/settings-profile-template";
-import { AuthSelector } from "../../selectors/auth-selector";
+import { AuthSelector } from "../../redux/selectors/auth-selector";
 import styles from "./settings-profile-page.module.scss";
 
 const SettingProfilePage: FC = () => {

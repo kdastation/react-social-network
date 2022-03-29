@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 import { Button, TextField } from "@mui/material";
-import { registerUser } from "../../../middlewares/registration-middleware/registration-middleware";
+import { registerUser } from "../../../async-thunks/registration-async-thunks/registration-async-thunks";
 import {
   validatorsFormRegistrationFieldLogin,
   validatorsFormRegistrationFieldPassword,

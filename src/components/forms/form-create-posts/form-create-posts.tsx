@@ -1,13 +1,13 @@
-import { FC, memo, useState } from "react";
+import { FC, memo } from "react";
 import { useDispatch } from "react-redux";
 import { validatorsFormCreatePost } from "../../../validators/validators-form-create-post";
-import { createNewPost } from "../../../middlewares/posts-middlewares/posts-middlewares";
 import { IPostToCreate } from "../../../models/post-model";
 import { CustomMultilineInput } from "../../custom-input/custom-multiline-input/custom-multiline-input";
 import { Button, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useSubmitAndModal } from "../../../hooks/submit-and-modal-hook";
 import { CustomModal } from "../../custom-modal/custom-modal";
+import { createNewPost } from "../../../async-thunks/posts-async-thunks/posts-async-thunks";
 
 interface FormCreatePostsProps {
   nameUser: string;
