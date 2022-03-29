@@ -1,5 +1,6 @@
 import { Box, Modal, Typography } from "@mui/material";
 import { FC } from "react";
+import styles from "./custom-modal.module.scss";
 
 interface CustomModalProps {
   message: string | null;
@@ -24,11 +25,11 @@ const CustomModal: FC<CustomModalProps> = (props) => {
   return (
     <div>
       <Modal open={isVisibleModal} onClose={onCloseModal}>
-        <Box sx={style}>
+        <div className={styles.wrapper}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             {message}
           </Typography>
-        </Box>
+        </div>
       </Modal>
     </div>
   );

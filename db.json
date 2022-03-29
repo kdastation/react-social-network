@@ -111,6 +111,16 @@
       "content": "zxcvcbcxbcbxcvbvcbxcvbxvcbcxbcxbcxvbcxvbcxvbxcb",
       "nameAuthor": "kunistation",
       "id": 32
+    },
+    {
+      "content": "qweqweqweqwewqeqeqewqeq",
+      "nameAuthor": "kunistation",
+      "id": 33
+    },
+    {
+      "nameAuthor": "kunistation",
+      "content": "йцууууууууууууу",
+      "id": 34
     }
   ],
   "commentsPost": [
@@ -329,10 +339,10 @@
       "name": "kunistation",
       "id": 3,
       "img": "https://rosomed2020.ru/sites/all/themes/campadmin/dist/default/assets/app/media/img/users/user-anonim.jpg",
-      "city": "Санкт-Петербург",
+      "city": "Братск",
       "languages": [
-        "English",
-        "Украинский"
+        "Украинский",
+        "English"
       ]
     },
     {

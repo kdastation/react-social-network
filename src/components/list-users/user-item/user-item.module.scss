@@ -1,0 +1,18 @@
+.avatar {
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+.wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.informations {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
