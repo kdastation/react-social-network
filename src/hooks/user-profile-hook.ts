@@ -11,16 +11,14 @@ interface IUseUser {
   isActiveUser: boolean;
   errorMessage: string | null;
   isLoading: boolean;
-  userData: IUserInformation;
+  userData: IUserInformation | null;
   isAuth: boolean;
 }
 
 const useUserProfile = (): IUseUser => {
   const nameActiveUser = useSelector(AuthSelector.getUserName);
   const isAuth = useSelector(AuthSelector.getIsAuthStatus);
-  const [userData, setUserData] = useState<IUserInformation>(
-    {} as IUserInformation
-  );
+  const [userData, setUserData] = useState<IUserInformation | null>(null);
   const { userName: userNameForParams } = useParams<ParamProfilePage>();
   const {
     error,
@@ -38,7 +36,7 @@ const useUserProfile = (): IUseUser => {
   }, [userNameForParams]);
 
   return {
-    isActiveUser: isAuth && nameActiveUser === userData.name,
+    isActiveUser: isAuth && nameActiveUser === userData?.name,
     isLoading: isLoading,
     errorMessage: error,
     userData: userData,

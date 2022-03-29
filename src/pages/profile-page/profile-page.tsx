@@ -1,16 +1,17 @@
 import { FC } from "react";
 import { useUserProfile } from "../../hooks/user-profile-hook";
 import { ProfileInformations } from "../../components/profile-informations/profile-informations";
-import { renderError } from "../../services/components-service/render-components-service";
 import { Posts } from "../../components/posts/posts";
 import { DefaultLoader } from "../../components/loaders/default-loader/default-loader";
 import styles from "./profile-page.module.scss";
 
+//TODO: Доделать       {error}
 const ProfilePage: FC = () => {
   const { errorMessage, isActiveUser, isAuth, isLoading, userData } =
     useUserProfile();
 
-  const error = renderError(isLoading, errorMessage);
+  const isSuccess = !isLoading && !errorMessage && userData;
+
   console.log(errorMessage);
 
   return (
@@ -20,9 +21,9 @@ const ProfilePage: FC = () => {
           <DefaultLoader />
         </div>
       )}
-      {error}
+
       <div className={styles.profile_informations_wrapper}>
-        {!isLoading && !errorMessage && (
+        {isSuccess && (
           <ProfileInformations
             isAuth={isAuth}
             isActiveUser={isActiveUser}
@@ -31,7 +32,7 @@ const ProfilePage: FC = () => {
         )}
       </div>
       <div>
-        {!isLoading && !errorMessage && (
+        {isSuccess && (
           <Posts
             userAvatar={userData.img}
             isAuth={isAuth}

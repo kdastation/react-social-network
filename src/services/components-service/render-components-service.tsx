@@ -45,8 +45,8 @@ export const renderUserItem = (
   userInformation: IUserInformation
 ): React.ReactNode => {
   return (
-    <div style={{ marginBottom: "10px" }}>
-      <UserItem key={userInformation.id} userInformation={userInformation} />
+    <div key={userInformation.id} style={{ marginBottom: "10px" }}>
+      <UserItem userInformation={userInformation} />
     </div>
   );
 };
