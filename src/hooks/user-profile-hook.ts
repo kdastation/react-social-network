@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { ParamProfilePage } from "../routes/consts-routes";
 import { GeneralUserApiServise } from "../services/api-service/user-api-servise/user-api-service";
 import { AuthSelector } from "../redux/selectors/auth-selector";
+import { useFetching } from "./fetching-hook";
 
 interface IUseUser {
   isActiveUser: boolean;
@@ -13,39 +14,31 @@ interface IUseUser {
   userData: IUserInformation;
   isAuth: boolean;
 }
-//TODO: Доделать
+
 const useUserProfile = (): IUseUser => {
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const nameActiveUser = useSelector(AuthSelector.getUserName);
+  const isAuth = useSelector(AuthSelector.getIsAuthStatus);
   const [userData, setUserData] = useState<IUserInformation>(
     {} as IUserInformation
   );
   const { userName: userNameForParams } = useParams<ParamProfilePage>();
+  const {
+    error,
+    fetching: fetchUser,
+    isLoading,
+  } = useFetching(async () => {
+    const user = await GeneralUserApiServise.upgradeGetUserInformation(
+      userNameForParams
+    );
+    setUserData(user);
+  });
 
-  const fetchUserData = () => {
-    //TODO: переделать это безобразие
-    setIsLoading(true);
-    setError(null);
-    GeneralUserApiServise.getUserInformation(userNameForParams)
-      .then((user) => {
-        const isUseExists = !!user;
-        if (isUseExists) {
-          setUserData(user);
-        } else {
-          setError("Пользователь не найден");
-        }
-      })
-      .finally(() => setIsLoading(false));
-  };
   useEffect(() => {
-    fetchUserData();
+    fetchUser();
   }, [userNameForParams]);
 
-  const nameActiveUser = useSelector(AuthSelector.getUserName);
-  const isAuth = useSelector(AuthSelector.getIsAuthStatus);
-
   return {
-    isActiveUser: isAuth && nameActiveUser === userNameForParams,
+    isActiveUser: isAuth && nameActiveUser === userData.name,
     isLoading: isLoading,
     errorMessage: error,
     userData: userData,

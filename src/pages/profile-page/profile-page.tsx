@@ -11,6 +11,7 @@ const ProfilePage: FC = () => {
     useUserProfile();
 
   const error = renderError(isLoading, errorMessage);
+  console.log(errorMessage);
 
   return (
     <div>

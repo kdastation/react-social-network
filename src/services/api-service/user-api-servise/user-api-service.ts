@@ -21,6 +21,19 @@ class GeneralUserApiServise {
     const userInformation: IUserInformation = response.data[0];
     return userInformation;
   }
+
+  static async upgradeGetUserInformation(
+    name: string
+  ): Promise<IUserInformation> {
+    const response = await axios.get<IUserInformation[]>(
+      apiUrlNames.MAIN_URL + apiUrlNames.URL_USER_INFORMATIONS + name
+    );
+    const userInformation: IUserInformation = response.data[0];
+    if (!userInformation) {
+      throw new Error("Пользователь с таким именем не найден");
+    }
+    return userInformation;
+  }
 }
 
 const changePasswordUser = async (userData: IUser) => {
